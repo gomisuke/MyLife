@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :customs, dependent: :destroy
+  #refileの設定
+  attachment :profile_image
 end

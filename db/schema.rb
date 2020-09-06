@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2020_09_06_164602) do
     t.string "name", null: false
     t.string "acount_name", null: false
     t.string "introduction"
+    t.string "profile_image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
