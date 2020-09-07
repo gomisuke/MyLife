@@ -1,0 +1,48 @@
+<div class="container">
+	<div class="row">
+		<div class="offset-md-1 col-md-10">
+			<table class="table">
+				<thead>
+					<tr>
+						<th class="">タスク</th>
+						<th clsss="">（チェックラン）</th>
+						<th clsss="">（更新ボタン）</th>
+					</tr>
+				</thead> 
+				<tbody>
+					<% @customs.each do |custom| %>
+					<tr>
+						<td><%= custom.task %></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<div class="">
+			<%= month_calendar events: @custom_records do |date, custom_records| %>
+				<%= date %>
+
+				<% custom_records.each do |custom_record| %>
+					<div>
+						<%= custom_record.custom.task %>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+	<div class="row ">
+		<div class="col-md-4">
+			<%= link_to "習慣", customs_management_path, class:"btn btn-info" %>
+		</div>
+		<div class="col-md-4">
+			<%= link_to "日記", "", class:"btn btn-info" %>
+		</div>
+		<div class="col-md-4">
+			<%= link_to "投稿", "", class:"btn btn-info" %>
+		</div>
+	</div>
+</div>

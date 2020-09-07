@@ -1,0 +1,30 @@
+<div class="container">
+	<div class="row">
+		<div class="offset-md-1 col-md-10">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>タスク一覧</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @customs.each do |custom| %>
+					<tr>
+						<td><%= custom.task %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-10">
+			<%= form_with model: @custom do |f| %>
+			<%= f.label :task %>
+			<%= f.text_field :task %>
+			<%= f.submit "作成", class:"btn btn-success" %>
+			<% end %>
+		</div>
+	</div>
+</div>
