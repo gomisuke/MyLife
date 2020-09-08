@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   	registrations: 'users/registrations',
   	sessions: 'users/sessions'
   }
-
+  resource :users
   get 'customs/management' => 'customs#management'
   resources :customs
+  post 'task_complete/:id' => 'custom_records#create', as: 'task_complete'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

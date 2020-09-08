@@ -75,3 +75,5 @@ gem 'refile-mini_magick'
 gem 'kaminari'
 #カレンダー機能
 gem 'simple_calendar', '~> 2.0'
+#アイコン
+gem 'font-awesome-sass', '~> 5.13.0'

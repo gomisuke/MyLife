@@ -14,7 +14,7 @@
 					<tr>
 						<td><%= custom.task %></td>
 						<td></td>
-						<td></td>
+						<td><%= link_to "達成", task_complete_path(custom.id), method: :post %></td>
 					</tr>
 					<% end %>
 				</tbody>
@@ -28,7 +28,8 @@
 
 				<% custom_records.each do |custom_record| %>
 					<div>
-						<%= custom_record.custom.task %>
+						<i class="fas fa-chevron-circle-down"></i>
+						
 					</div>
 				<% end %>
 			<% end %>
