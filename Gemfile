@@ -77,3 +77,5 @@ gem 'kaminari'
 gem 'simple_calendar', '~> 2.0'
 #アイコン
 gem 'font-awesome-sass', '~> 5.13.0'
+#バッチ処理
+gem 'whenever', require: false
