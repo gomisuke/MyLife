@@ -2,13 +2,13 @@ class CustomsController < ApplicationController
 
 
 	def index
-		@customs = Custom.all
-		@custom_records = CustomRecord.all
+		@customs = Custom.where(user_id: current_user.id)
+		@custom_records = CustomRecord.all   #ログイン中のユーザーのみのデータを渡す
 	end
 
 	def management
 		@custom = Custom.new
-		@customs = Custom.all
+		@customs = Custom.where(user_id: current_user.id)
 	end
 
 	def create
@@ -22,9 +22,9 @@ class CustomsController < ApplicationController
 
 
 	private
-
-
 		def custom_params
 			params.require(:custom).permit(:task)
 		end
+
+
 end

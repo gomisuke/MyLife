@@ -1,0 +1,17 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-4 border mr-4">
+			<%= link_to "投稿する", new_post_path %>
+			<br>
+			<br>
+			<br>
+		</div>
+		<div class="col-md-7">
+			<% @posts.each do |post| %>
+				<%= image_tag attachment_url(post, :post_image, :fill, 50, 50, format: "jpeg", fallback: "no_image.jpeg") %>
+				<%= post.content %>
+			<% end %>
+		</div>
+	</div>
+</div>
+

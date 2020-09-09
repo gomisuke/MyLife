@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_06_164602) do
+ActiveRecord::Schema.define(version: 2020_09_09_144909) do
 
   create_table "custom_records", force: :cascade do |t|
     t.integer "custom_id", null: false
@@ -23,9 +23,41 @@ ActiveRecord::Schema.define(version: 2020_09_06_164602) do
   create_table "customs", force: :cascade do |t|
     t.string "task", null: false
     t.integer "user_id", null: false
+    t.integer "task_status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_customs_on_user_id"
+  end
+
+  create_table "diaries", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "genre_id", null: false
+    t.string "title", null: false
+    t.text "body", null: false
+    t.date "diary_date", null: false
+    t.integer "adequacy", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["genre_id"], name: "index_diaries_on_genre_id"
+    t.index ["user_id"], name: "index_diaries_on_user_id"
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_genres_on_user_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "content"
+    t.string "post_image_id"
+    t.boolean "post_status", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

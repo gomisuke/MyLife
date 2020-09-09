@@ -1,0 +1,43 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<%= form_with model: @diary do |f| %>
+
+			<%= f.label :title %>
+			<%= f.text_field :title %>
+
+			<%= f.label :body %>
+			<%= f.text_area :body %>
+
+			<%= f.label :diary_date %>
+			<%= date_field_tag :diary_date %>
+
+			<%= f.label :genre %>
+			<%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい" %>
+
+			<label>
+			<%= f.radio_button :adequacy, 1 %>絶不調
+			</label>
+
+			<label>
+			<%= f.radio_button :adequacy, 1 %>不調
+			</label>
+
+			<label>
+			<%= f.radio_button :adequacy, 1 %>普通
+			</label>
+
+			<label>
+			<%= f.radio_button :adequacy, 1 %>好調
+			</label>
+
+			<label>
+			<%= f.radio_button :adequacy, 1 %>絶好調
+			</label>
+
+			<%= f.submit "作成", class:"btn btn-success" %>
+
+			<% end %>
+		</div>
+	</div>
+</div>

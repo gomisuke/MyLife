@@ -5,6 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :customs, dependent: :destroy
+  has_many :posts, dependent: :destroy
+  has_many :genres, dependent: :destroy
+  has_many :diaries, dependent: :destroy
   #refileの設定
   attachment :profile_image
 end
