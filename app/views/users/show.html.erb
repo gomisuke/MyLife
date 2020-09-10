@@ -4,11 +4,28 @@
 	</div>
 	<div class="row">
 		<div class="col-md-4 border mr-4">
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
+			<table class="table">
+				<tr>
+					<td><%= image_tag attachment_url(@user, :profile_image, :fill, 200, 200, format: "jpeg", fallback: "no_image.jpeg"), class:"card-item post-image" %></td>
+				</tr>
+				<tr>
+					<td><%= @user.name %></td>
+				</tr>
+				<tr>
+					<td><%= @user.acount_name %></td>
+				</tr>
+				<tr>
+					<td>日記：<%= @user.diaries.count %></td>
+				</tr>
+				<tr>
+					<td>投稿：<%= @user.posts.count %></td>
+				</tr>
+				<tr>
+					<td><%= @user.introduction %></td>
+				</tr>
+				<tr>
+					<td><%= link_to "会員登録情報編集", "", class:"btn btn-success" %></td>
+				</tr>
 		</div>
 		<div class="col-md-7 border">
 		</div>

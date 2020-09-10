@@ -1,16 +1,21 @@
 <div class="container">
 	<div class="row">
-		<div class="col-md-12">
-			<%= form_with model: @post do |f| %>
-
-			<%= f.label :content %>
-			<%= f.text_field :content %>
-			<%= f.label :post_image %>
-			<%= f.attachment_field :post_image %>
-
-			<%= f.submit "投稿", class:"btn btn-success" %>
-
-			<% end %>
+		<div class="offset-2 col-md-8 pt-5">
+			<div class="post-new">
+				<%= form_with model: @post do |f| %>
+				<div class="row">
+					<div class="col-md-6">
+						<%= f.label :post_image %>
+						<%= f.attachment_field :post_image %>
+					</div>
+					<div class="col-md-6">
+						<%= f.label :content %>
+						<%= f.text_field :content, class:"form-control" %>
+						<%= f.submit "投稿", class:"btn btn-success" %>
+					</div>
+				</div>
+				<% end %>
+			</div>
 		</div>
 	</div>
 </div>

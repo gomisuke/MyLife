@@ -1,14 +1,26 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-8 offset-2">
+			<h2>日記一覧</h2>
 			<%= link_to "日記を書く", new_diary_path %>
-			<% @diaries.each do |diary| %>
-				<%= diary.title %>
-				<%= diary.body %>
-				<%= diary.diary_date %>
-				<%= diary.genre.name %>
-				<%= diary.adequacy %>
-			<% end %>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>日付</th>
+						<th>タイトル</th>	
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @diaries.each do |diary| %>
+					<tr>
+						<td><%= diary.diary_date %></td>
+						<td><%= diary.title %></td>
+						<td><%= diary.adequacy %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
 		</div>
 	</div>
 </div>
