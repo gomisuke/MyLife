@@ -6,15 +6,22 @@ class PostsController < ApplicationController
   def create
   	@post = Post.new(post_params)
   	@post.user = current_user
-  	@post.save
-  	redirect_to posts_path
+    tag_list = params[:post][:tag_name].split
+    if @post.save
+      @post.save_tag(tag_list)
+      redirect_to posts_path
+    else
+      render 'new'
+    end
   end
 
   def index
-  	@posts = Post.where(user_id: current_user.id)
+  	@posts = Post.all
+    @tags = Tag.all
   end
 
   def show
+    
   end
 
 

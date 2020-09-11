@@ -17,3 +17,13 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+
+$(function(){
+	$('#profile-image').on('change', function (e) {
+		var reader = new FileReader();
+		reader.onload = function (e) {
+			$("#profile-preview").attr('src', e.target.result);
+		}
+		reader.readAsDataURL(e.target.files[0]);
+	});
+});

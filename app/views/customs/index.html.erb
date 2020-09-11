@@ -24,11 +24,9 @@
 	<div class="row">
 		<div class="offset-1 col-md-10">
 			<%= month_calendar events: @custom_records do |date, custom_records| %>
-				<%= date.strftime("%d日") %>
+				<%= date.strftime("%d日") %><br>
 				<% custom_records.each do |custom_record| %>
-					<div>
-						<i class="fas fa-chevron-circle-down"></i>	
-					</div>
+					<i class="fas fa-chevron-circle-down"></i>	
 				<% end %>
 			<% end %>
 		</div>

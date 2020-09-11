@@ -6,7 +6,10 @@
 	</div>
 	<div class="row">
 		<div class="col-md-2 border mr-4">
-			<%= link_to "投稿する", new_post_path %>
+			<%= link_to "投稿する", new_post_path %><br>
+			<% @tags.each do |tag| %>
+			<%= link_to "#{tag.name}(#{tag.posts.count})", "" %><br>
+			<% end %>
 		</div>
 		<div class="col-md-9">
 			<div class="row">
@@ -14,10 +17,15 @@
 				<div class="col-md-4 post-box">
 					<div class="card">
 						<%= link_to post_path(post.id) do %>
-						<%= image_tag attachment_url(post, :post_image, :fill, 200, 200, format: "jpeg", fallback: "no_image.jpeg"), class:"card-item post-image" %>
+						<div class="card-item">
+							<%= attachment_image_tag(post, :post_image, format: "jpeg", fallback: "no_image.jpeg", class:"post-image") %>
+						</div>
 						<% end %>
 						<div class="card-body">
 							<%= post.content %>
+							<div class="post-<%= post.id %>">
+								<%= render 'likes/like', { post: post } %>
+							</div>
 						</div>
 					</div>
 				</div>
