@@ -19,19 +19,19 @@
 
 # Learn more: http://github.com/javan/whenever
 
-# require File.expand_path(File.dirname(__FILE__) + "/environment")
-# rails_env = Rails.env.to_sym
-# set :environment, rails_env
-# set :output, 'log/cron.log'
-# every 2.minute do
-#   begin
-#     runner "Batch::DataReset.data_reset"
-#   rescue => e
-#     Rails.logger.error("aborted rails runner")
-#     raise e
-#   end
-# end
+ require File.expand_path(File.dirname(__FILE__) + "/environment")
+ rails_env = Rails.env.to_sym
+ set :environment, rails_env
+ set :output, 'log/cron.log'
+ every 1.day, at: '17:28 pm' do
+   begin
+     runner "Batch::TaskReset.task_reset"
+   rescue => e
+     Rails.logger.error("aborted rails runner")
+     raise e
+   end
+ end
 
-# every 1.day, at: '9:50 pm' do 
-# 	runner "Custom.reset_task"
-# end
+ # every 1.day, at: '15:25 pm' do 
+ # 	runner "Batch::TaskReset.task_reset"
+ # end
