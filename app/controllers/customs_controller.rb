@@ -18,6 +18,12 @@ class CustomsController < ApplicationController
 		redirect_to customs_path
 	end
 
+	def destroy
+		@custom = Custom.find(params[:id])
+		@custom.destroy
+		redirect_to customs_management_path
+	end
+
 
 
 
