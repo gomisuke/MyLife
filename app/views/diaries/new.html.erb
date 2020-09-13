@@ -1,4 +1,4 @@
-<div class="container">
+
 	<div class="row">
 		<div class="offset-1 col-md-10 py-5">
 			<div class="new-form">
@@ -12,7 +12,7 @@
 							</div>
 							<div class="col-4">
 								<%= f.label :diary_date %>
-								<%= date_field_tag :diary_date, class:"form-control" %>
+								<%= f.date_field :diary_date, class:"form-control" %>
 							</div>
 							<div class="col-12">
 								<%= f.label :body %>
@@ -42,4 +42,3 @@
 			</div>
 		</div>
 	</div>
-</div>

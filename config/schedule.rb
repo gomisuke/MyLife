@@ -23,7 +23,7 @@
  rails_env = Rails.env.to_sym
  set :environment, rails_env
  set :output, 'log/cron.log'
- every 1.day, at: '17:28 pm' do
+ every 1.day, at: '0:00 am' do
    begin
      runner "Batch::TaskReset.task_reset"
    rescue => e

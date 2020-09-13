@@ -25,9 +25,7 @@
 				<div class="col-md-4 post-box">
 					<div class="card">
 						<%= link_to post_path(post.id) do %>
-						<div class="card-item">
-							<%= attachment_image_tag(post, :post_image, format: "jpeg", fallback: "no_image.jpeg", class:"post-image") %>
-						</div>
+							<%= attachment_image_tag(post, :post_image, format: "jpeg", fallback: "no_image.jpeg", class:"card-img-top") %>
 						<% end %>
 						<div class="card-body">
 							<%= post.content %>

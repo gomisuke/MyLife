@@ -1,8 +1,18 @@
-<div class="container">
-	<div class="row">
-		<div class="col-md-8 offset-2">
+
+
+	<div class="row mt-5">
+		<div class="title">
+		</div>
+		<div class="col-4 title-name">
 			<h2>日記一覧</h2>
-			<%= link_to "日記を書く", new_diary_path %>
+		</div>
+		<div class="offset-4 col-3">
+			<%= link_to "日記を書く", new_diary_path, class:"btn btn-success" %>
+		</div>
+		
+	</div>
+	<div class="row mt-5">
+		<div class="col-md-12">
 			<table class="table">
 				<thead>
 					<tr>
@@ -23,4 +33,3 @@
 			</table>
 		</div>
 	</div>
-</div>

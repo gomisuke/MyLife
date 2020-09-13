@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :genres, dependent: :destroy
   has_many :diaries, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :posts, through: :likes
   #refileの設定
   attachment :profile_image
 end

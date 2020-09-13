@@ -7,7 +7,6 @@ class DiariesController < ApplicationController
 	def create
 		@diary = Diary.new(diary_params)
 		@diary.user = current_user
-		@diary.diary_date = params[:diary_date].to_date
 		@diary.save
 		redirect_to customs_path
 	end

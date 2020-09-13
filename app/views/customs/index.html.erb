@@ -1,51 +1,49 @@
-<div class="container">
-	<div class="row">
-		<div class="offset-md-1 col-md-10 py-5">
-			<div class="index-table">
-				<table class="table">
-					<h4 class="text-center">今日のタスク</h4>
-					<tbody>
-						<% @customs.each do |custom| %>
-						<tr>
-							<td><%= custom.task %></td>
-							<td><%= custom.task_status %></td>
-							<td>
-								<% if custom.task_status == "未達成" %>
-								<%= link_to "達成", task_complete_path(custom.id), method: :post %>
-								<% end %>
-							</td>
-						</tr>
-						<% end %>
-					</tbody>
-				</table>
-			</div>
+<div class="row">
+	<div class="offset-md-1 col-md-10 py-5">
+		<div class="index-table">
+			<table class="table">
+				<h4 class="text-center">今日のタスク</h4>
+				<tbody>
+					<% @customs.each do |custom| %>
+					<tr>
+						<td><%= custom.task %></td>
+						<td><span class="badge badge-info"><%= custom.task_status %></span></td>
+						<td>
+							<% if custom.task_status == "未達成" %>
+							<%= link_to "達成", task_complete_path(custom.id), method: :post %>
+							<% end %>
+						</td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
 		</div>
 	</div>
-	<div class="row">
-		<div class="offset-1 col-md-10">
-			<%= month_calendar events: @custom_records do |date, custom_records| %>
-				<%= date.strftime("%d日") %><br>
-				<% custom_records.each do |custom_record| %>
-					<i class="fas fa-chevron-circle-down"></i>	
-				<% end %>
+</div>
+<div class="row">
+	<div class="offset-1 col-md-10">
+		<%= month_calendar events: @custom_records do |date, custom_records| %>
+			<%= date.strftime("%d日") %><br>
+			<% custom_records.each do |custom_record| %>
+				<i class="fas fa-chevron-circle-down"></i>	
 			<% end %>
+		<% end %>
+	</div>
+</div>
+<div class="row">
+	<%= link_to customs_management_path, class:"col-md-4" do %>
+		<div class="box mx-auto text-center">
+			<span class="btn text-white">習慣</span>
 		</div>
-	</div>
-	<div class="row">
-		<%= link_to customs_management_path, class:"col-md-4" do %>
-			<div class="box mx-auto text-center">
-				<span class="btn text-white">習慣</span>
-			</div>
-		<% end %>
-		<%= link_to diaries_path, class:"col-md-4" do %>
-			<div class="box mx-auto text-center">
-				<sapan class="btn text-white">日記</sapan>
-			</div>
-		<% end %>
-		<%= link_to posts_path, class:"col-md-4" do %>
-			<div class="box mx-auto text-center">
-				<span class="btn text-white">投稿</span>
-			</div>
-		<% end %>
-	</div>
+	<% end %>
+	<%= link_to diaries_path, class:"col-md-4" do %>
+		<div class="box mx-auto text-center">
+			<sapan class="btn text-white">日記</sapan>
+		</div>
+	<% end %>
+	<%= link_to posts_path, class:"col-md-4" do %>
+		<div class="box mx-auto text-center">
+			<span class="btn text-white">投稿</span>
+		</div>
+	<% end %>
 </div>

@@ -1,0 +1,7 @@
+<div class="row">
+	<% @posts.each do |post| %>
+	<div class="col-4">
+		<%= attachment_image_tag(post, :post_image, format: "jpeg", fallback: "no_image.jpeg", class:"card-img-top") %>
+	</div>
+	<% end %>
+</div>
