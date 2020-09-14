@@ -6,13 +6,13 @@
 				<div class="row">
 					<div class="col-7">
 						<div class="row">
-							<div class="col-8">
-								<%= f.label :title %>
-								<%= f.text_field :title, class:"form-control" %>
-							</div>
 							<div class="col-4">
 								<%= f.label :diary_date %>
 								<%= f.date_field :diary_date, class:"form-control" %>
+							</div>
+							<div class="col-8">
+								<%= f.label :title %>
+								<%= f.text_field :title, class:"form-control" %>
 							</div>
 							<div class="col-12">
 								<%= f.label :body %>
@@ -38,6 +38,7 @@
 							</div>
 						</div>
 					</div>
+				</div>
 				<% end %>
 			</div>
 		</div>

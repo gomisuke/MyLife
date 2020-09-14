@@ -1,6 +1,26 @@
 <div class="row">
-	<div class="offset-md-1 col-md-10 py-5">
-		<div class="index-table">
+	<div class="offset-md-1 col-md-5 py-5">
+		<div class="custom-table">
+			<table class="table">
+				<h4 class="text-center">今日のタスク</h4>
+				<tbody>
+					<% @customs.each do |custom| %>
+					<tr>
+						<td><%= custom.task %></td>
+						<td><span class="badge badge-info"><%= custom.task_status %></span></td>
+						<td>
+							<% if custom.task_status == "未達成" %>
+							<%= link_to "達成", task_complete_path(custom.id), method: :post %>
+							<% end %>
+						</td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="col-md-5 ml-5 py-5">
+		<div class="custom-table">
 			<table class="table">
 				<h4 class="text-center">今日のタスク</h4>
 				<tbody>
