@@ -10,14 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_11_073452) do
+ActiveRecord::Schema.define(version: 2020_09_15_134508) do
 
   create_table "custom_records", force: :cascade do |t|
     t.integer "custom_id", null: false
     t.datetime "start_time", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
     t.index ["custom_id"], name: "index_custom_records_on_custom_id"
+    t.index ["user_id"], name: "index_custom_records_on_user_id"
   end
 
   create_table "customs", force: :cascade do |t|
@@ -50,6 +52,19 @@ ActiveRecord::Schema.define(version: 2020_09_11_073452) do
     t.index ["user_id"], name: "index_genres_on_user_id"
   end
 
+  create_table "life_recodes", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "study_time", null: false
+    t.integer "sleeping_time", null: false
+    t.integer "exercise_time", null: false
+    t.string "study_memo"
+    t.string "sleeping_memo"
+    t.string "exercise_memo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_life_recodes_on_user_id"
+  end
+
   create_table "likes", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "post_id", null: false
@@ -57,6 +72,19 @@ ActiveRecord::Schema.define(version: 2020_09_11_073452) do
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_likes_on_post_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "lives", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "study_time", default: 0, null: false
+    t.integer "sleeping_time", default: 0, null: false
+    t.integer "exercise_time", default: 0, null: false
+    t.string "study_memo"
+    t.string "sleeping_memo"
+    t.string "exercise_memo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_lives_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|

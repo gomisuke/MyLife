@@ -23,6 +23,7 @@
  rails_env = Rails.env.to_sym
  set :environment, rails_env
  set :output, 'log/cron.log'
+
  every 1.day, at: '0:00 am' do
    begin
      runner "Batch::TaskReset.task_reset"
@@ -31,6 +32,18 @@
      raise e
    end
  end
+
+ every 1.day, at: '23:59 pm' do
+ 	begin
+     runner "Batch::LifeRecodeSave.life_recode_save"
+   rescue => e
+     Rails.logger.error("aborted rails runner")
+     raise e
+   end
+
+ end
+
+
 
  # every 1.day, at: '15:25 pm' do 
  # 	runner "Batch::TaskReset.task_reset"

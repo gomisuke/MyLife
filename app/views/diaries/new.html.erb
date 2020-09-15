@@ -27,11 +27,11 @@
 								<%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい" %>
 							</div>
 							<div class="col-12">
-								<label><%= f.radio_button :adequacy, 1 %>絶不調</label>
-								<label><%= f.radio_button :adequacy, 2 %>不調</label>
-								<label><%= f.radio_button :adequacy, 3 %>普通</label>
-								<label><%= f.radio_button :adequacy, 4 %>好調</label>
-								<label><%= f.radio_button :adequacy, 5 %>絶好調</label>
+								<label><%= f.radio_button :adequacy, 1 %><img src="/assets/favicon.png" class="diary-image"></label>
+								<label><%= f.radio_button :adequacy, 2 %><img src="/assets/favicon.png" class="diary-image"></label>
+								<label><%= f.radio_button :adequacy, 3 %><img src="/assets/favicon.png" class="diary-image"></label>
+								<label><%= f.radio_button :adequacy, 4 %><img src="/assets/favicon.png" class="diary-image"></label>
+								<label><%= f.radio_button :adequacy, 5 %><img src="/assets/favicon.png" class="diary-image"></label>
 							</div>
 							<div class="col-12 text-center pt-5">
 								<%= f.submit "作成", class:"btn btn-success" %>

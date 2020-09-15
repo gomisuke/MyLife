@@ -37,12 +37,23 @@
 }
 
 .custom-table {
-  border-radius: 50px;
-  border: 5px #00bfff solid;
+  border: 5px #007bff double;
 }
 
 .management-table {
   border-radius: 50px;
-  border: 5px #00bfff solid;
+  border: 5px #007bff solid;
   padding: 20px;
+}
+
+.heading {
+  height: 100px;
+  line-height: 100px;
+  color: white;
+  border: 5px #ffffff double;
+}
+
+.life-form {
+  border: 5px #007bff solid;
+  border-radius: 20px;
 }

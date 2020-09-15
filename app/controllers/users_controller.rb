@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 		@diaries = Diary.where(user_id: current_user)
 		@posts = Post.where(user_id: current_user)
 		@like_posts = @user.posts
+		@life_recodes = LifeRecode.where(user_id: current_user.id)
 	end
 
 	def mypage_diary

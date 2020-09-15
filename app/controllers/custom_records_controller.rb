@@ -6,6 +6,7 @@ class CustomRecordsController < ApplicationController
 		@custom.save
 		@custom_record = CustomRecord.new
 		@custom_record.custom_id = @custom.id
+		@custom_record.user = current_user
 		@custom_record.start_time = DateTime.now
 		@custom_record.save
 		redirect_to customs_path

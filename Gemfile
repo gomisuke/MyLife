@@ -83,3 +83,6 @@ gem 'simple_calendar', '~> 2.0'
 gem 'font-awesome-sass', '~> 5.13.0'
 #バッチ処理
 gem 'whenever', require: false
+#グラフ
+gem 'chartkick'
+gem 'groupdate'

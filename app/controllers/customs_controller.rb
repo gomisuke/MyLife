@@ -3,7 +3,8 @@ class CustomsController < ApplicationController
 
 	def index
 		@customs = Custom.where(user_id: current_user.id)
-		@custom_records = CustomRecord.all   #ログイン中のユーザーのみのデータを渡す
+		@custom_records = CustomRecord.where(user_id: current_user.id)   #ログイン中のユーザーのみのデータを渡す
+		@life = Life.find_or_create_by(user_id: current_user.id)
 	end
 
 	def management
