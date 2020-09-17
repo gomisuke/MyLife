@@ -12,10 +12,10 @@
 				投稿：<%= @user.posts.count %><br>
 				<%= @user.introduction %>
 			</P>
-			<%= link_to "会員登録情報編集", "", class:"btn btn-success" %>
+			<%= link_to "会員登録情報編集", edit_user_registration_path(@user), class:"btn btn-success" %>
 		</div>
 		<div class="col-md-9 border">
-			<%= line_chart @life_recodes.group(:study_time).count %>
+			<%= line_chart @life_recodes.group(:life_date).sum(:study_time) %>
 		</div>
 	</div>
 	<div class="row mt-5">

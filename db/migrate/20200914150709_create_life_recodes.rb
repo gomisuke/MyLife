@@ -9,6 +9,7 @@ class CreateLifeRecodes < ActiveRecord::Migration[5.2]
       t.string :study_memo
       t.string :sleeping_memo
       t.string :exercise_memo
+      t.date :life_date,       null:false
 
       t.timestamps
     end

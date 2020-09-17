@@ -9,27 +9,57 @@
 		<div class="offset-4 col-3">
 			<%= link_to "日記を書く", new_diary_path, class:"btn btn-success" %>
 		</div>
-		
 	</div>
 	<div class="row mt-5">
-		<div class="col-md-12">
+		<div class="col-md-4 border overflow-auto diary-table">
 			<table class="table">
 				<thead>
 					<tr>
-						<th>日付</th>
+						<th class="w-50">日付</th>
 						<th>タイトル</th>	
 						<th></th>
 					</tr>
 				</thead>
 				<tbody>
-					<% @diaries.each do |diary| %>
+					<% @diary_all.each do |diary| %>
 					<tr>
-						<td><%= diary.diary_date %></td>
+						<td><%= diary.diary_date.strftime("%Y年%m月%d日") %></td>
 						<td><%= diary.title %></td>
-						<td><%= diary.adequacy %></td>
+						<td><%= link_to "詳細", diary_path(diary.id), class:"btn btn-success"%></td>
 					</tr>
 					<% end %>
 				</tbody>
 			</table>
+		</div>
+		<div class="col-md-7 border ml-4 py-4">
+			<% @diaries.each do |diary| %>
+				<div class="row">
+					<div class="col-3">
+						<div class="badge badge-dark py-2">
+							<%= diary.diary_date.strftime("%Y年%m月%d日") %>
+						</div>
+						<div class="text-center pt-2">
+							<% case diary.adequacy %>
+							<% when 1 %>
+								<img src="/assets/favicon.png" class="diary-image-mypage">
+							<% when 2 %>
+								<img src="/assets/favicon.png" class="diary-image-mypage">
+							<% when 3 %>
+								<img src="/assets/favicon.png" class="diary-image-mypage">
+							<% when 4 %>
+								<img src="/assets/favicon.png" class="diary-image-mypage">
+							<% when 5 %>
+								<img src="/assets/favicon.png" class="diary-image-mypage">
+							<% end %>
+						</div>
+					</div>
+					<div class="col-9">
+						<h4 class="border-bottom"><%= diary.title %></h4>
+						<%= diary.body %>
+					</div>
+				</div>
+			<% end %>
+
+				<%= paginate @diaries %>
 		</div>
 	</div>

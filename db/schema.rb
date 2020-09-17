@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 2020_09_15_134508) do
     t.string "study_memo"
     t.string "sleeping_memo"
     t.string "exercise_memo"
+    t.date "life_date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_life_recodes_on_user_id"

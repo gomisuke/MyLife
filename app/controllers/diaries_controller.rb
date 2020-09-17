@@ -12,7 +12,12 @@ class DiariesController < ApplicationController
 	end
 
 	def index
-		@diaries = Diary.where(user_id: current_user.id)
+		@diary_all = Diary.where(user_id: current_user.id).order(diary_date: "DESC")
+		@diaries = Diary.where(user_id: current_user.id).page(params[:page]).per(3).order(diary_date: "DESC")
+	end
+
+	def show
+		@diary = Diary.find(params[:id])
 	end
 
 	def edit

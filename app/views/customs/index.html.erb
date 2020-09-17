@@ -1,7 +1,12 @@
 <div class="border">
 <div class="row">
 	<div class="col-12 text-center heading d-flex align-items-center bg-primary">
-		<h2>My Life</h2>
+		<h2 class="">My Life</h2>
+		<!-- <ul class="ml-auto border list-unstyled mt-3">
+			<li class="badge badge-pill badge-success">習慣</li>
+			<li class="badge badge-pill badge-success">日記</li>
+			<li class="badge badge-pill badge-success">投稿</li>
+		</ul> -->
 	</div>
 </div>
 <div class="row">
@@ -37,15 +42,18 @@
 			<%= form_with model: @life, class:"form-inline" do |f| %>
 					<div class="form-group form-row">
 						<%= f.label :study_time, "勉強時間", class:"col-6 col-form-label text-md-right" %>
-						<%= f.text_field :study_time, class:"form-control col-5" %>分
+						<%= f.text_field :study_time, class:"form-control col-4" %>分
+						<%= render 'shared/modal_study', { f: f } %>
 					</div>
 					<div class="form-group form-row">
 						<%= f.label :sleeping_time, "睡眠時間", class:"col-6 col-form-label text-md-right" %>
-						<%= f.text_field :sleeping_time, class:"form-control col-5" %>分
+						<%= f.text_field :sleeping_time, class:"form-control col-4" %>分
+						<%= render 'shared/modal_sleeping', { f: f } %>
 					</div>
 					<div class="form-group form-row">
 						<%= f.label :exercise_time, "運動時間", class:"col-6" %>
-						<%= f.text_field :exercise_time, class:"form-control col-5" %>分
+						<%= f.text_field :exercise_time, class:"form-control col-4" %>分
+						<%= render 'shared/modal_exercise', { f: f } %>
 					</div>
 					<div class="col-12 text-center pt-3">
 						<%= f.submit "記録", class:"btn btn-info px-5" %>

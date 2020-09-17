@@ -4,5 +4,8 @@
 			<h1>MyLife!</h1>
 			<p>より良い生活を手に入れよう</p>
 		</div>
+		<div class="col-10">
+			<%= line_chart @diaries.group(:diary_date) %>
+		</div>
 	</div>
 </div>
