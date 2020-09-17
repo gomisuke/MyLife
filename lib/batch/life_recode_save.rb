@@ -10,6 +10,7 @@ class Batch::LifeRecodeSave
 			life_recode.study_memo = life.study_memo
 			life_recode.sleeping_memo = life.sleeping_memo
 			life_recode.exercise_memo = life.exercise_memo
+			life_recode.life_date = DateTime.now
 			life_recode.save
 			life.study_time = 0
 			life.sleeping_time = 0

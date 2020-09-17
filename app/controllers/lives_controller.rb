@@ -4,7 +4,6 @@ class LivesController < ApplicationController
 	def update
 		@life = Life.find_by(user_id: current_user)
 		@life.update(life_params)
-		binding.pry
 		@life.save
 		redirect_to customs_path
 	end

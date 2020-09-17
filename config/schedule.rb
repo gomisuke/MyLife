@@ -24,7 +24,7 @@
  set :environment, rails_env
  set :output, 'log/cron.log'
 
- every 1.day, at: '0:00 am' do
+ every 1.day, at: '3:00 pm' do
    begin
      runner "Batch::TaskReset.task_reset"
    rescue => e
@@ -33,7 +33,7 @@
    end
  end
 
- every 1.day, at: '23:59 pm' do
+ every 1.day, at: '2:59 pm' do
  	begin
      runner "Batch::LifeRecodeSave.life_recode_save"
    rescue => e
