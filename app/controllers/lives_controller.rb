@@ -4,8 +4,14 @@ class LivesController < ApplicationController
 	def update
 		@life = Life.find_by(user_id: current_user)
 		@life.update(life_params)
-		@life.save
-		redirect_to customs_path
+		if @life.save
+			flash[:success] = "記録しました"
+			redirect_to customs_path
+		else
+			@customs = Custom.where(user_id: current_user.id)
+			@custom_records = CustomRecord.where(user_id: current_user.id)   #ログイン中のユーザーのみのデータを渡す
+			render 'customs/index'
+		end
 	end
 
 

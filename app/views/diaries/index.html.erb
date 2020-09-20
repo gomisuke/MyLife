@@ -41,21 +41,23 @@
 						<div class="text-center pt-2">
 							<% case diary.adequacy %>
 							<% when 1 %>
-								<img src="/assets/favicon.png" class="diary-image-mypage">
+								<img src="/assets/nicochan5.png" class="diary-image-mypage">
 							<% when 2 %>
-								<img src="/assets/favicon.png" class="diary-image-mypage">
+								<img src="/assets/nicochan4.png" class="diary-image-mypage">
 							<% when 3 %>
-								<img src="/assets/favicon.png" class="diary-image-mypage">
+								<img src="/assets/nicochan1.png" class="diary-image-mypage">
 							<% when 4 %>
-								<img src="/assets/favicon.png" class="diary-image-mypage">
+								<img src="/assets/nicochan2.png" class="diary-image-mypage">
 							<% when 5 %>
-								<img src="/assets/favicon.png" class="diary-image-mypage">
+								<img src="/assets/nicochan3.png" class="diary-image-mypage">
 							<% end %>
 						</div>
 					</div>
 					<div class="col-9">
 						<h4 class="border-bottom"><%= diary.title %></h4>
-						<%= diary.body %>
+						<div class="overflow-auto diary-index">
+							<%= diary.body %>
+						</div>
 					</div>
 				</div>
 			<% end %>

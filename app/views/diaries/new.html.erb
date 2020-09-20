@@ -2,36 +2,47 @@
 	<div class="row">
 		<div class="offset-1 col-md-10 py-5">
 			<div class="new-form">
-				<%= form_with model: @diary do |f| %>
+				<%= form_with model: @diary, local: true do |f| %>
+				<%= render 'shared/error_messages', {model: f.object} %>
 				<div class="row">
 					<div class="col-7">
 						<div class="row">
 							<div class="col-4">
-								<%= f.label :diary_date %>
-								<%= f.date_field :diary_date, class:"form-control" %>
+								<div class="form-group">
+									<%= f.label :diary_date %>
+									<%= f.date_field :diary_date, class:"form-control" %>
+								</div>
 							</div>
 							<div class="col-8">
-								<%= f.label :title %>
-								<%= f.text_field :title, class:"form-control" %>
+								<div class="form-group">
+									<%= f.label :title %>
+									<%= f.text_field :title, class:"form-control" %>
+								</div>
 							</div>
 							<div class="col-12">
-								<%= f.label :body %>
-								<%= f.text_area :body, class:"form-control" %>
+								<div class="form-group">
+									<%= f.label :body %>
+									<%= f.text_area :body, class:"form-control" %>
+								</div>
 							</div>
 						</div>
 					</div>
 					<div class="col-5">
 						<div class="row">
 							<div class="col-12">
-								<%= f.label :genre %>
-								<%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい" %>
+								<div class="form-group">
+									<%= f.label :genre %>
+									<%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい" %>
+								</div>
 							</div>
 							<div class="col-12">
-								<label><%= f.radio_button :adequacy, 1 %><img src="/assets/favicon.png" class="diary-image"></label>
-								<label><%= f.radio_button :adequacy, 2 %><img src="/assets/favicon.png" class="diary-image"></label>
-								<label><%= f.radio_button :adequacy, 3 %><img src="/assets/favicon.png" class="diary-image"></label>
-								<label><%= f.radio_button :adequacy, 4 %><img src="/assets/favicon.png" class="diary-image"></label>
-								<label><%= f.radio_button :adequacy, 5 %><img src="/assets/favicon.png" class="diary-image"></label>
+								<div class="form-group">
+									<label><%= f.radio_button :adequacy, 1 %><img src="/assets/nicochan5.png" class="diary-image"></label>
+									<label><%= f.radio_button :adequacy, 2 %><img src="/assets/nicochan4.png" class="diary-image"></label>
+									<label><%= f.radio_button :adequacy, 3 %><img src="/assets/nicochan1.png" class="diary-image"></label>
+									<label><%= f.radio_button :adequacy, 4 %><img src="/assets/nicochan2.png" class="diary-image"></label>
+									<label><%= f.radio_button :adequacy, 5 %><img src="/assets/nicochan3.png" class="diary-image"></label>
+								</div>
 							</div>
 							<div class="col-12 text-center pt-5">
 								<%= f.submit "作成", class:"btn btn-success" %>

@@ -9,6 +9,7 @@ class PostsController < ApplicationController
     tag_list = params[:post][:tag_name].split
     if @post.save
       @post.save_tag(tag_list)
+      flash[:success] = "投稿しました"
       redirect_to posts_path
     else
       render 'new'

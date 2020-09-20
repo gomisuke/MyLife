@@ -15,14 +15,22 @@ class CustomsController < ApplicationController
 	def create
 		custom = Custom.new(custom_params)
 		custom.user = current_user
-		custom.save
-		redirect_to customs_path
+		if custom.save
+			flash[:success] = "新しい習慣を追加しました！今日から続けよう！"
+			redirect_to customs_path
+		else
+			render 'management'
+		end
 	end
 
 	def destroy
 		@custom = Custom.find(params[:id])
-		@custom.destroy
-		redirect_to customs_management_path
+		if @custom.destroy
+			flash[:danger] = "習慣を削除しました"
+			redirect_to customs_management_path
+		else
+			render 'management'
+		end
 	end
 
 

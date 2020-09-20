@@ -13,4 +13,10 @@ class User < ApplicationRecord
   has_many :posts, through: :likes
   #refileの設定
   attachment :profile_image
+
+  validates :name, presence: true, length:{maximum:10}
+  validates :acount_name, presence: true
+  # @\w*   正規表現
+  validates :introduction, presence: true, length:{maximum: 100}
+
 end

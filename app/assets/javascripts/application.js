@@ -29,3 +29,7 @@ $(function(){
 		reader.readAsDataURL(e.target.files[0]);
 	});
 });
+
+$(function(){
+	$('[data-trigger="click').tooltip();
+});

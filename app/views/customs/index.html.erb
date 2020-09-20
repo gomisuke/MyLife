@@ -14,19 +14,29 @@
 		<%= month_calendar events: @custom_records do |date, custom_records| %>
 			<%= date.strftime("%d日") %><br>
 			<% custom_records.each do |custom_record| %>
+			<span class="" data-trigger="click" data-placement="top" title="<%= custom_record.custom.task %>">
 				<i class="fas fa-chevron-circle-down"></i>
+			</span>
 			<% end %>
 		<% end %>
 	</div>
-	<div class="col-md-6 py-5">
+	<div class="col-md-6 py-2">
+		<h4 class="text-center">今日のタスク  全<%= @customs.count %>件</h4>
 		<div class="custom-table px-5">
 			<table class="table">
-				<h4 class="text-center">今日のタスク</h4>
 				<tbody>
 					<% @customs.each do |custom| %>
 					<tr>
-						<td class="w-50"><%= custom.task %></td>
-						<td class="w-25 text-center"><span class="badge badge-info"><%= custom.task_status %></span></td>
+						<td class="w-50">
+							<%= custom.task %>
+						</td>
+						<td class="w-25 text-center">
+							<% if custom.task_status == "未達成" %>
+								<span class="badge badge-info"><%= custom.task_status %></span>
+							<% else %>
+								<span class="badge badge-warning"><%= custom.task_status %></span>
+							<% end %>
+						</td>
 						<td class="w-25 text-center">
 							<% if custom.task_status == "未達成" %>
 							<%= link_to "達成", task_complete_path(custom.id), method: :post %>
@@ -40,7 +50,7 @@
 		<div class="row">
 			<div class="offset-1 col-md-10 life-form mt-3 py-3">
 			<%= form_with model: @life, class:"form-inline" do |f| %>
-					<div class="form-group form-row">
+				 	<div class="form-group form-row">
 						<%= f.label :study_time, "勉強時間", class:"col-6 col-form-label text-md-right" %>
 						<%= f.text_field :study_time, class:"form-control col-4" %>分
 						<%= render 'shared/modal_study', { f: f } %>

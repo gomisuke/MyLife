@@ -7,8 +7,12 @@ class DiariesController < ApplicationController
 	def create
 		@diary = Diary.new(diary_params)
 		@diary.user = current_user
-		@diary.save
-		redirect_to customs_path
+		if @diary.save
+			flash[:success] = "日記を作成しました！"
+			redirect_to customs_path
+		else
+			render 'new'
+		end
 	end
 
 	def index

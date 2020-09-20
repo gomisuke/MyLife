@@ -7,14 +7,22 @@ class GenresController < ApplicationController
   def create
   	@genre = Genre.new(genre_params)
   	@genre.user = current_user
-  	@genre.save
-  	redirect_to genres_path
+  	if @genre.save
+      flash[:success] = "新しいジャンルを作成しました"
+      redirect_to genres_path
+    else
+      render 'index'
+    end
   end
 
   def destroy
   	@genre = Genre.find(params[:id])
-  	@genre.destroy
-  	redirect_to genres_path
+  	if @genre.destroy
+      flash[:danger] = "ジャンルを削除しました"
+      redirect_to genres_path
+    else
+      render 'index'
+    end
   end
 
 

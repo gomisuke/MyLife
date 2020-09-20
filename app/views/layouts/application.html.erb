@@ -4,6 +4,7 @@
     <title>Mylife</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= favicon_link_tag('favicon.jpeg') %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -12,7 +13,9 @@
   <body>
     <div id="wrap">
       <%= render 'shared/header' %>
-      <div class="container">
+      <div class="container-fuild">
+        <%= flash[:success] %>
+        <%= flash[:danger] %>
         <%= yield %>
       </div>
       <%= render 'shared/footer' %>
