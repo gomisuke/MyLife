@@ -21,5 +21,6 @@ Rails.application.routes.draw do
   resources :genres
   resources :diaries
   resources :lives
+  resources :life_recodes
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

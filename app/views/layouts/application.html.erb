@@ -13,11 +13,9 @@
   <body>
     <div id="wrap">
       <%= render 'shared/header' %>
-      <div class="container-fuild">
         <%= flash[:success] %>
         <%= flash[:danger] %>
         <%= yield %>
-      </div>
       <%= render 'shared/footer' %>
     </div>
   </body>

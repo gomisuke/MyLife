@@ -13,6 +13,7 @@
 				<%= @user.introduction %>
 			</P>
 			<%= link_to "会員登録情報編集", edit_user_registration_path(@user), class:"btn btn-success" %>
+			<%= link_to "生活を見る", life_recodes_path, class:"btn btn-primary mt-2" %>
 		</div>
 		<div class="col-md-9">
 			<%= link_to "学習時間", chart_study_path, remote: true, class:"btn btn-primary" %>

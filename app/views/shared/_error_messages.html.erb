@@ -1,7 +1,7 @@
 <% if model.errors.any? %>
-	<div class="row text-red">
-		<h3><%= model.errors.count %>error prohibited this obj from being saved:</h3>
-		<div class="col-12">
+	<div class="row error-box">
+		<h4><%= model.errors.count %>件のエラーが発生しました</h4>
+		<div class="col-10">
 			<ul>
 				<% model.errors.full_messages.each do |message| %>
 					<li class=""><%= message %></li>

@@ -41,13 +41,17 @@
  	padding-bottom : 60px;
  }
 
+ .header-logo {
+ 	background-color: white;
+ 	border-radius: 50px;
+ }
+
  footer {
  	width: 100%;
  	position: absolute;
  	bottom: 0;
  	background-color: #007bff;
  	height: 60px;
- 	line-height: 60px;
  	color: white;
  }
 
@@ -62,6 +66,12 @@
  	border-bottom: 3px #007bff solid;
  }
 
+.error-box {
+	border: 2px #ff0000 solid;
+	border-radius: 30px;
+	background-color: #ffc0cb;
+	padding: 20px;
+}
 // .yellow-line {
 // 	background-color: yellow;
 // 	height: 10px;

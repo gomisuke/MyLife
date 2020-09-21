@@ -1,97 +1,92 @@
-<div class="border">
-<div class="row">
-	<div class="col-12 text-center heading d-flex align-items-center bg-primary">
-		<h2 class="">My Life</h2>
-		<!-- <ul class="ml-auto border list-unstyled mt-3">
-			<li class="badge badge-pill badge-success">習慣</li>
-			<li class="badge badge-pill badge-success">日記</li>
-			<li class="badge badge-pill badge-success">投稿</li>
-		</ul> -->
-	</div>
-</div>
-<div class="row">
-	<div class=" col-md-6">
-		<%= month_calendar events: @custom_records do |date, custom_records| %>
-			<%= date.strftime("%d日") %><br>
-			<% custom_records.each do |custom_record| %>
-			<span class="" data-trigger="click" data-placement="top" title="<%= custom_record.custom.task %>">
-				<i class="fas fa-chevron-circle-down"></i>
-			</span>
-			<% end %>
-		<% end %>
-	</div>
-	<div class="col-md-6 py-2">
-		<h4 class="text-center">今日のタスク  全<%= @customs.count %>件</h4>
-		<div class="custom-table px-5">
-			<table class="table">
-				<tbody>
-					<% @customs.each do |custom| %>
-					<tr>
-						<td class="w-50">
-							<%= custom.task %>
-						</td>
-						<td class="w-25 text-center">
-							<% if custom.task_status == "未達成" %>
-								<span class="badge badge-info"><%= custom.task_status %></span>
-							<% else %>
-								<span class="badge badge-warning"><%= custom.task_status %></span>
-							<% end %>
-						</td>
-						<td class="w-25 text-center">
-							<% if custom.task_status == "未達成" %>
-							<%= link_to "達成", task_complete_path(custom.id), method: :post %>
-							<% end %>
-						</td>
-					</tr>
-					<% end %>
-				</tbody>
-			</table>
+<div class="container">
+	<div class="row justify-content-center custom-index-top">
+		<div class="col-md-4">
+			<%= image_tag 'mylife-logo5.png', class:"img-fluid" %>
 		</div>
-		<div class="row">
-			<div class="offset-1 col-md-10 life-form mt-3 py-3">
-			<%= form_with model: @life, class:"form-inline" do |f| %>
-				 	<div class="form-group form-row">
-						<%= f.label :study_time, "勉強時間", class:"col-6 col-form-label text-md-right" %>
-						<%= f.text_field :study_time, class:"form-control col-4" %>分
-						<%= render 'shared/modal_study', { f: f } %>
-					</div>
-					<div class="form-group form-row">
-						<%= f.label :sleeping_time, "睡眠時間", class:"col-6 col-form-label text-md-right" %>
-						<%= f.text_field :sleeping_time, class:"form-control col-4" %>分
-						<%= render 'shared/modal_sleeping', { f: f } %>
-					</div>
-					<div class="form-group form-row">
-						<%= f.label :exercise_time, "運動時間", class:"col-6" %>
-						<%= f.text_field :exercise_time, class:"form-control col-4" %>分
-						<%= render 'shared/modal_exercise', { f: f } %>
-					</div>
-					<div class="col-12 text-center pt-3">
-						<%= f.submit "記録", class:"btn btn-info px-5" %>
-					</div>
+	</div>
+	<div class="row py-3">
+		<div class=" col-md-5 offset-md-1 bg-white">
+			<%= month_calendar events: @custom_records do |date, custom_records| %>
+				<%= date.strftime("%d日") %><br>
+				<% custom_records.each do |custom_record| %>
+				<span class="" data-trigger="click" data-placement="top" title="<%= custom_record.custom.task %>">
+					<i class="fas fa-chevron-circle-down"></i>
+				</span>
+				<% end %>
 			<% end %>
+		</div>
+		<div class="col-md-5 offset bg-white">
+			<h3 class="text-center task-title">毎日のタスク  全<%= @customs.count %>件</h3>
+			<div class="custom-table px-5">
+				<table class="table">
+					<tbody>
+						<% @customs.each do |custom| %>
+						<tr>
+							<td class="w-50">
+								<%= custom.task %>
+							</td>
+							<td class="w-25 text-center">
+								<% if custom.task_status == "未達成" %>
+									<span class="badge badge-info"><%= custom.task_status %></span>
+								<% else %>
+									<span class="badge badge-warning"><%= custom.task_status %></span>
+								<% end %>
+							</td>
+							<td class="w-25 text-center">
+								<% if custom.task_status == "未達成" %>
+								<%= link_to "達成", task_complete_path(custom.id), method: :post %>
+								<% end %>
+							</td>
+						</tr>
+						<% end %>
+					</tbody>
+				</table>
+			</div>
+			<div class="row">
+				<div class="offset-1 col-md-10 life-form mt-3 py-3">
+				<%= form_with model: @life, class:"form-inline" do |f| %>
+					 	<div class="form-group form-row">
+							<%= f.label :study_time, "勉強時間", class:"col-6 col-form-label text-md-right" %>
+							<%= f.text_field :study_time, class:"form-control col-4" %>分
+							<%= render 'shared/modal_study', { f: f } %>
+						</div>
+						<div class="form-group form-row">
+							<%= f.label :sleeping_time, "睡眠時間", class:"col-6 col-form-label text-md-right" %>
+							<%= f.text_field :sleeping_time, class:"form-control col-4" %>分
+							<%= render 'shared/modal_sleeping', { f: f } %>
+						</div>
+						<div class="form-group form-row">
+							<%= f.label :exercise_time, "運動時間", class:"col-6" %>
+							<%= f.text_field :exercise_time, class:"form-control col-4" %>分
+							<%= render 'shared/modal_exercise', { f: f } %>
+						</div>
+						<div class="col-12 text-center pt-3">
+							<%= f.submit "記録", class:"btn btn-info px-5" %>
+						</div>
+				<% end %>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
-<div class="row">
+	<div class="row">
 
-</div>
+	</div>
 
-<div class="row">
-	<%= link_to customs_management_path, class:"col-md-4" do %>
-		<div class="box mx-auto text-center">
-			<span class="btn text-white">習慣</span>
-		</div>
-	<% end %>
-	<%= link_to diaries_path, class:"col-md-4" do %>
-		<div class="box mx-auto text-center">
-			<sapan class="btn text-white">日記</sapan>
-		</div>
-	<% end %>
-	<%= link_to posts_path, class:"col-md-4" do %>
-		<div class="box mx-auto text-center">
-			<span class="btn text-white">投稿</span>
-		</div>
-	<% end %>
-</div>
+	<div class="row my-5">
+		<%= link_to customs_management_path, class:"col-md-4" do %>
+			<div class="box-custom mx-auto text-center">
+				<%= image_tag 'custom-logo.png', class:"img-fluid" %>
+			</div>
+		<% end %>
+		<%= link_to diaries_path, class:"col-md-4" do %>
+			<div class="box-diary mx-auto text-center">
+				<%= image_tag 'diary-logo.png', class:"img-fluid" %>
+			</div>
+		<% end %>
+		<%= link_to posts_path, class:"col-md-4" do %>
+			<div class="box-post mx-auto text-center">
+				<%= image_tag 'post-logo.png', class:"img-fluid" %>
+			</div>
+		<% end %>
+	</div>
 </div>

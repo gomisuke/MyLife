@@ -1,8 +1,10 @@
-<div class="top">
-	<div class="row">
-		<div class="top-text">
+<div class="container-fluid top">
+	<div class="row top-box">
+		<div class="col-md-6 offset-1 top-text pt-5">
 			<h1 class="top-title">MyLife</h1>
 			<p class="top-sabtitle">良い習慣を身につけ、より良い生活を手に入れよう</p>
+			<%= link_to "登録して始める", new_user_registration_path, class:"btn btn-success btn-lg w-50" %>
+			<%= link_to "ログイン", user_session_path, class:"btn btn-primary btn-lg w-50 mt-3" %>
 		</div>
 	</div>
 </div>

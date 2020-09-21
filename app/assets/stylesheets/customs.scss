@@ -33,11 +33,33 @@
   .has-events {}
 }
 
-.box {
-  width: 60%;
-  height: 200px;
+.calendar-top {
+  background-color: #007bff;
+  border-radius: 30px;
+  padding: 0px 20px;
+  color: white;
+}
+
+.box-custom {
+  border: 3px #006400 solid;
   border-radius: 100px;
-  background-color: blue;
+  padding: 20px 30px;
+}
+
+.box-diary {
+  border: 3px #ff8c00 solid;
+  border-radius: 100px;
+  padding: 20px 30px;
+}
+
+.box-post {
+  border: 3px #00008b solid;
+  border-radius: 100px;
+  padding: 20px 30px;
+}
+
+.custom-index-top {
+  border-bottom: 1px #d3d3d3 solid;
 }
 
 .custom-table {
@@ -59,4 +81,11 @@
 .life-form {
   border: 5px #007bff solid;
   border-radius: 20px;
+}
+
+.task-title {
+  background-color: #007bff;
+  border-radius: 30px;
+  padding: 0px 20px;
+  color: white;
 }
