@@ -4,8 +4,8 @@
 			<%= image_tag 'mylife-logo5.png', class:"img-fluid" %>
 		</div>
 	</div>
-	<div class="row py-3">
-		<div class=" col-md-5 offset-md-1 bg-white">
+	<div class="row py-3 justify-content-center">
+		<div class=" col-md-5 bg-white">
 			<%= month_calendar events: @custom_records do |date, custom_records| %>
 				<%= date.strftime("%d日") %><br>
 				<% custom_records.each do |custom_record| %>
@@ -15,7 +15,7 @@
 				<% end %>
 			<% end %>
 		</div>
-		<div class="col-md-5 offset bg-white">
+		<div class="col-md-5">
 			<h3 class="text-center task-title">毎日のタスク  全<%= @customs.count %>件</h3>
 			<div class="custom-table px-5">
 				<table class="table">
@@ -43,27 +43,30 @@
 				</table>
 			</div>
 			<div class="row">
-				<div class="offset-1 col-md-10 life-form mt-3 py-3">
-				<%= form_with model: @life, class:"form-inline" do |f| %>
-					 	<div class="form-group form-row">
-							<%= f.label :study_time, "勉強時間", class:"col-6 col-form-label text-md-right" %>
-							<%= f.text_field :study_time, class:"form-control col-4" %>分
-							<%= render 'shared/modal_study', { f: f } %>
-						</div>
-						<div class="form-group form-row">
-							<%= f.label :sleeping_time, "睡眠時間", class:"col-6 col-form-label text-md-right" %>
-							<%= f.text_field :sleeping_time, class:"form-control col-4" %>分
-							<%= render 'shared/modal_sleeping', { f: f } %>
-						</div>
-						<div class="form-group form-row">
-							<%= f.label :exercise_time, "運動時間", class:"col-6" %>
-							<%= f.text_field :exercise_time, class:"form-control col-4" %>分
-							<%= render 'shared/modal_exercise', { f: f } %>
-						</div>
-						<div class="col-12 text-center pt-3">
-							<%= f.submit "記録", class:"btn btn-info px-5" %>
-						</div>
-				<% end %>
+				<div class="col-md-12 mt-3">
+					<h3 class="text-center task-title">生活記録</h3>
+					<div class="life-form">
+						<%= form_with model: @life, class:"form-inline" do |f| %>
+							 	<div class="form-group form-row">
+									<%= f.label :study_time, "勉強時間", class:"col-6 col-form-label text-md-right" %>
+									<%= f.text_field :study_time, class:"form-control col-4" %>分
+									<%= render 'shared/modal_study', { f: f } %>
+								</div>
+								<div class="form-group form-row">
+									<%= f.label :sleeping_time, "睡眠時間", class:"col-6 col-form-label text-md-right" %>
+									<%= f.text_field :sleeping_time, class:"form-control col-4" %>分
+									<%= render 'shared/modal_sleeping', { f: f } %>
+								</div>
+								<div class="form-group form-row">
+									<%= f.label :exercise_time, "運動時間", class:"col-6" %>
+									<%= f.text_field :exercise_time, class:"form-control col-4" %>分
+									<%= render 'shared/modal_exercise', { f: f } %>
+								</div>
+								<div class="col-12 text-center pt-3">
+									<%= f.submit "記録", class:"btn btn-info px-5" %>
+								</div>
+						<% end %>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -72,18 +75,18 @@
 
 	</div>
 
-	<div class="row my-5">
-		<%= link_to customs_management_path, class:"col-md-4" do %>
+	<div class="row my-5 justify-content-center">
+		<%= link_to customs_management_path, class:"col-md-3" do %>
 			<div class="box-custom mx-auto text-center">
 				<%= image_tag 'custom-logo.png', class:"img-fluid" %>
 			</div>
 		<% end %>
-		<%= link_to diaries_path, class:"col-md-4" do %>
+		<%= link_to diaries_path, class:"col-md-3" do %>
 			<div class="box-diary mx-auto text-center">
 				<%= image_tag 'diary-logo.png', class:"img-fluid" %>
 			</div>
 		<% end %>
-		<%= link_to posts_path, class:"col-md-4" do %>
+		<%= link_to posts_path, class:"col-md-3" do %>
 			<div class="box-post mx-auto text-center">
 				<%= image_tag 'post-logo.png', class:"img-fluid" %>
 			</div>

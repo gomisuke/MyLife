@@ -57,3 +57,88 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+
+  activerecord:
+    models:
+      custom: 習慣
+      custom_record: 習慣記録
+      diary: 日記
+      genre: ジャンル
+      life: 生活
+      life_recode: 生活記録
+      like: いいね
+      post: 投稿
+      tag: タグ
+      tagging: タグ関連付け
+      user: ユーザー
+    attributes:
+      custom:
+        user_id: ユーザー
+        task: タスク
+        task_status: タスクステータス
+        created_at: 作成日時
+        updated_at: 更新日時
+      custom_record:
+        custom_id: 習慣
+        user_id: ユーザー
+        start_time: カレンダー表示時間
+        created_at: 作成日時
+        updated_at: 更新日時
+      diary:
+        user_id: ユーザー
+        genre_id: ジャンル
+        title: タイトル
+        body: 内容
+        diary_date: 日付
+        adequacy: 充実度（気分）
+        created_at: 作成日時
+        updated_at: 更新日時
+      genre:
+        user_id: ユーザー
+        genre_id: ジャンル
+        created_at: 作成日時
+        updated_at: 更新日時
+      life:
+        user_id: ユーザー
+        study_time: 勉強時間
+        sleeping_time: 睡眠時間
+        exercise_time: 運動時間
+        study_memo: メモ（勉強）
+        sleeping_memo: メモ（睡眠）
+        exercise_memo: メモ（運動）
+        created_at: 作成日時
+        updated_at: 更新日時
+      life_recode:
+        user_id: ユーザー
+        study_time: 勉強時間
+        sleeping_time: 睡眠時間
+        exercise_time: 運動時間
+        study_memo: メモ（勉強）
+        sleeping_memo: メモ（睡眠）
+        exercise_memo: メモ（運動）
+        created_at: 作成日時
+        updated_at: 更新日時
+      like:
+        user_id: ユーザー
+        post_id: 投稿
+      post:
+        user_id: ユーザー
+        content: 投稿内容
+        post_image_id: 投稿写真
+        post_status: 公開設定
+        created_at: 作成日時
+        updated_at: 更新日時
+      tag:
+        name: タグ名
+        created_at: 作成日時
+        updated_at: 更新日時
+      tagging:
+        post_id: 投稿
+        tag_id: タグ
+      user:
+        name: ユーザー名
+        acount_name: アカウント名
+        introduction: 一言文
+        profile_image_id: プロフィール写真
+        created_at: 作成日時
+        updated_at: 更新日時

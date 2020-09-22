@@ -9,5 +9,4 @@ class Custom < ApplicationRecord
 
 	enum	task_status: [:未達成, :達成]
 
-
 end

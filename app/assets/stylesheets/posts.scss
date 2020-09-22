@@ -3,12 +3,24 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .post-new {
-	border: 2px #000000 solid;
+	border: 1px #d3d3d3 solid;
 	padding: 20px 30px;
 }
 
-.search-box {
-	border: 1px #000000 solid;
+.post-new-title {
+	border-bottom: 5px #00008b solid;
+}
 
+.post-image {
+	border: 2px #d3d3d3 solid;
+}
+
+.search-box {
+	border: 1px #d3d3d3 solid;
+	height: 500px;
+}
+
+.post-index-title {
+	border-bottom: 5px #00008b solid;
 }
 

@@ -20,6 +20,7 @@
 //= require chartkick
 //= require Chart.bundle
 
+//プレビュー機能（新規登録）
 $(function(){
 	$('#profile-image').on('change', function (e) {
 		var reader = new FileReader();
@@ -29,6 +30,18 @@ $(function(){
 		reader.readAsDataURL(e.target.files[0]);
 	});
 });
+
+//プレビュー機能（新規投稿）
+$(function(){
+	$('#post-image').on('change', function (e) {
+		var reader = new FileReader();
+		reader.onload = function (e) {
+			$("#post-preview").attr('src', e.target.result);
+		}
+		reader.readAsDataURL(e.target.files[0]);
+	});
+});
+
 
 $(function(){
 	$('[data-trigger="click').tooltip();

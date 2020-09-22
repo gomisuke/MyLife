@@ -2,29 +2,28 @@
 	<div class="row mt-5">
 		<div class="title">
 		</div>
-		<div class="col-4 title-name">
-			<h2>日記一覧</h2>
+		<div class="col-4 diary-index-title">
+			<h2><i class="fas fa-book"></i>日記一覧</h2>
 		</div>
 		<div class="offset-4 col-3">
 			<%= link_to "日記を書く", new_diary_path, class:"btn btn-success" %>
 		</div>
 	</div>
-	<div class="row mt-5">
+	<div class="row mt-2">
 		<div class="col-md-4 border overflow-auto diary-table">
 			<table class="table">
 				<thead>
 					<tr>
-						<th class="w-50">日付</th>
-						<th>タイトル</th>	
-						<th></th>
+						<th class="w-75">日付</th>
+						<th class="w-25"></th>
 					</tr>
 				</thead>
 				<tbody>
 					<% @diary_all.each do |diary| %>
 					<tr>
-						<td><%= diary.diary_date.strftime("%Y年%m月%d日") %></td>
-						<td><%= diary.title %></td>
-						<td><%= link_to "詳細", diary_path(diary.id), class:"btn btn-success"%></td>
+						<td><%= diary.diary_date.strftime("%Y年%m月%d日") %><br>
+						<i class="fas fa-bookmark"></i><%= diary.title %></td>
+						<td><%= link_to "詳細", diary_path(diary.id), class:"btn btn-success btn-sm"%></td>
 					</tr>
 					<% end %>
 				</tbody>
