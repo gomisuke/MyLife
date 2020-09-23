@@ -13,12 +13,13 @@ class CustomsController < ApplicationController
 	end
 
 	def create
-		custom = Custom.new(custom_params)
-		custom.user = current_user
-		if custom.save
+		@custom = Custom.new(custom_params)
+		@custom.user = current_user
+		if @custom.save
 			flash[:success] = "新しい習慣を追加しました！今日から続けよう！"
 			redirect_to customs_path
 		else
+			@customs = Custom.where(user_id: current_user)
 			render 'management'
 		end
 	end

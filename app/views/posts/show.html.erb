@@ -1,6 +1,21 @@
 <div class="container">
-	<div class="row">
-		<div class="col-md-12">
+	<div class="row mt-3">
+		<div class="offset-1 col-6">
+			<%= link_to "<< 一覧へ戻る", posts_path, class:"" %>
+		</div>
+	</div>
+	<div class="row justify-content-center mt-3">
+		<div class="col-md-5">
+			<div class="card">
+				<%= attachment_image_tag(@post, :post_image, :fill, 300, 300, format: "jpeg", fallback: "no_image.jpeg", size: "100x100", class:"img-fluid card-img-top") %>
+				<div class="card-body">
+					<%= @post.content %>
+					<div class="post-<%= @post.id %>">
+						<%= render 'likes/like', { post: @post } %>
+					</div>
+					<%= link_to "削除", post_path(@post), method: :delete, class:"btn btn-danger btn-sm" %>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

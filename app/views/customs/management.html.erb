@@ -20,8 +20,9 @@
 	</div>
 	<div class="row justify-content-center">
 		<div class="col-md-10 pt-2">
-			<%= form_with model: @custom do |f| %>
+			<%= form_with model: @custom, local: true do |f| %>
 			<h3><i class="fas fa-plus-square"></i><%= f.label :task ,"新しい習慣を作る"%></h3>
+			<%= render 'shared/error_messages', {model: f.object} %>
 			<div class="form-group form-inline">
 				<%= f.text_field :task, class:"form-control w-75" %>
 				<%= f.submit "作成", class:"btn btn-success" %>

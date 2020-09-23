@@ -5,18 +5,34 @@
 				<h2 class=""><i class="fas fa-image"></i>投稿する</h2>
 			</div>
 			<div class="post-new">
-				<%= form_with model: @post do |f| %>
+				<%= form_with model: @post, local: true do |f| %>
+				<%= render 'shared/error_messages', {model: f.object} %>
 				<div class="row">
 					<div class="col-md-6">
 						<%= f.label :post_image %>
 						<%= f.attachment_field :post_image, id:"post-image" %>
-						<%= attachment_image_tag(@post, :post_image, size:"120x120", format: "jpeg", fallback: "no_image.jpeg", id:"post-preview", class:"post-image mt-3") %>
+						<%= attachment_image_tag(@post, :post_image, size:"300x300", format: "jpeg", fallback: "no_image.jpeg", id:"post-preview", class:"post-image mt-3 img-fluid") %>
 					</div>
 					<div class="col-md-6">
-						<%= f.label :content %>
-						<%= f.text_field :content, class:"form-control" %>
-						<%= f.label :tag_name, "タグ付け" %>
-						<%= f.text_field :tag_name, class:"form-control" %>
+						<div class="form-group">
+							<%= f.label :content %>
+							<%= f.text_field :content, class:"form-control" %>
+						</div>
+						<div class="form-group">
+							<%= f.label :tag_name, "タグ付け" %>
+							<%= f.text_field :tag_name, class:"form-control" %>
+						</div>
+						<div class="form-group">
+						<%= f.label :post_status %><br>
+							<label>
+								<%= f.radio_button :post_status, true, class:"" %>
+								公開
+							</label>
+							<label>
+								<%= f.radio_button :post_status, false, class:"" %>
+								非公開
+							</label>
+						</div>
 						<%= f.submit "投稿", class:"btn btn-success" %>
 					</div>
 				</div>
