@@ -78,17 +78,17 @@
 	<div class="row my-5 justify-content-center">
 		<%= link_to customs_management_path, class:"col-md-3" do %>
 			<div class="box-custom mx-auto text-center">
-				<%= image_tag 'custom-logo.png', class:"img-fluid" %>
+				<%= image_tag asset_path('custom-logo.png'), class:"img-fluid" %>
 			</div>
 		<% end %>
 		<%= link_to diaries_path, class:"col-md-3" do %>
 			<div class="box-diary mx-auto text-center">
-				<%= image_tag 'diary-logo.png', class:"img-fluid" %>
+				<%= image_tag asset_path('diary-logo.png'), class:"img-fluid" %>
 			</div>
 		<% end %>
 		<%= link_to posts_path, class:"col-md-3" do %>
 			<div class="box-post mx-auto text-center">
-				<%= image_tag 'post-logo.png', class:"img-fluid" %>
+				<%= image_tag asset_path('post-logo.png'), class:"img-fluid" %>
 			</div>
 		<% end %>
 	</div>

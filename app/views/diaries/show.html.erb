@@ -11,15 +11,15 @@
 					<%= @diary.genre.name %>
 					<% case @diary.adequacy %>
 						<% when 1 %>
-							<img src="/assets/nicochan5.png" class="diary-image-mypage">
+							<%= image_tag asset_path('nicochan5.png'), class:"diary-image-mypage" %>
 						<% when 2 %>
-							<img src="/assets/nicochan4.png" class="diary-image-mypage">
+							<%= image_tag asset_path('nicochan4.png'), class:"diary-image-mypage" %>
 						<% when 3 %>
-							<img src="/assets/nicochan1.png" class="diary-image-mypage">
+							<%= image_tag asset_path('nicochan1.png'), class:"diary-image-mypage" %>
 						<% when 4 %>
-							<img src="/assets/nicochan2.png" class="diary-image-mypage">
+							<%= image_tag asset_path('nicochan2.png'), class:"diary-image-mypage" %>
 						<% when 5 %>
-							<img src="/assets/nicochan3.png" class="diary-image-mypage">
+							<%= image_tag asset_path('nicochan3.png'), class:"diary-image-mypage" %>
 					<% end %>
 				</div>
 			</div>
