@@ -1,9 +1,39 @@
 <div class="container">
-	<div class="row">
+	<div class="page-title text-center b-primary mt-5">
+		<h1>生活記録</h1>
+	</div>
+	<div class="row justify-content-center mt-5">
+		<div class="col-md-9">
+			<%= link_to "学習時間", chart_study_path, remote: true, class:"btn btn-primary" %>
+			<%= link_to "睡眠時間", chart_sleeping_path, remote: true, class:"btn btn-info" %>
+			<%= link_to "運動時間", chart_exercise_path, remote: true, class:"btn btn-success" %>
+			<div id="chart">
+				<%= render 'shared/chart_study', { life_recodes: @life_recodes } %>
+			</div>
+		</div>
+	</div>
+	<div class="row justify-content-center">
 		<div class="col-md-10">
-			<% @life_recodes.each do |recode| %>
-				<%= recode.study_time %>
-			<% end %>
+			<table class="table w-100">
+				<thead>
+					<tr>
+						<th>日付</th>
+						<th>勉強時間(分)</th>
+						<th>睡眠時間(分)</th>
+						<th>運動時間(分)</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @life_recodes.each do |recode| %>
+					<tr>
+						<td><%= recode.life_date.strftime("%Y年%m月%d日") %></td>
+						<td><%= recode.study_time %></td>
+						<td><%= recode.sleeping_time %></td>
+						<td><%= recode.exercise_time %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
 		</div>
 	</div>
 </div>

@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :posts do
     resources :likes, only: [:create, :destroy]
   end
+  get 'search/post' => 'posts#post_search', as: 'post_search'
   resources :genres
   resources :diaries
   resources :lives
