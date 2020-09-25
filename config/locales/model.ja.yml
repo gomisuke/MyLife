@@ -71,6 +71,7 @@ ja:
       tag: タグ
       tagging: タグ関連付け
       user: ユーザー
+      inpuiry: お問い合わせ
     attributes:
       custom:
         user_id: ユーザー
@@ -142,3 +143,7 @@ ja:
         profile_image_id: プロフィール写真
         created_at: 作成日時
         updated_at: 更新日時
+      inquiry:
+        name: 名前
+        mail: メールアドレス
+        message: お問い合わせ内容

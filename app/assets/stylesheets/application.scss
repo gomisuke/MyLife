@@ -51,33 +51,35 @@
  	width: 100%;
  	position: absolute;
  	bottom: 0;
- 	background-color: #007bff;
  	height: 60px;
  	color: white;
  }
 
- // .title {
- // 	border-radius: 50%;
- // 	width: 50px;
- // 	height: 50px;
- // 	background-color: #007bff;
- // }
-
- // .title-name {
- // 	border-bottom: 3px #007bff solid;
- // }
-
 .error-box {
 	border: 2px #ff0000 solid;
-	border-radius: 30px;
 	background-color: #ffc0cb;
 	padding: 20px;
 }
-// .yellow-line {
-// 	background-color: yellow;
-// 	height: 10px;
-// }
 
+.btn-bg {
+	background-color: #d3d3d3;
+}
+
+.bg-blue1 {
+	background-color: #0083c9;
+}
+
+.bg-blue2 {
+	background-color: #43a2db;
+}
+
+.bg-blue3 {
+	background-color: #aecfed;
+}
+
+.bg-blue4 {
+	background-color: #dce9f7;
+}
 
 
 

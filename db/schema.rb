@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_15_134508) do
+ActiveRecord::Schema.define(version: 2020_09_25_072109) do
 
   create_table "custom_records", force: :cascade do |t|
     t.integer "custom_id", null: false
@@ -50,6 +50,14 @@ ActiveRecord::Schema.define(version: 2020_09_15_134508) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_genres_on_user_id"
+  end
+
+  create_table "inquiries", force: :cascade do |t|
+    t.string "name"
+    t.string "mail"
+    t.string "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "life_recodes", force: :cascade do |t|
