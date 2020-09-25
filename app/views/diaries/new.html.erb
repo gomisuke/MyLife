@@ -28,11 +28,14 @@
 							<%= f.text_area :body, class:"form-control", rows:10 %>
 						</div>
 					</div>
-					<div class="col-12">
+					<div class="col-6">
 						<div class="form-group">
 							<%= f.label :genre_id %>
 							<%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい" %>
 						</div>
+					</div>
+					<div class="col-6">
+						<%= link_to "ジャンル一覧・追加", genres_path, class:"btn btn-info" %>
 					</div>
 					<div class="col-12">
 						<div class="form-group">

@@ -42,7 +42,7 @@ $(function(){
 	});
 });
 
-
+//カレンダーツールチップ
 $(function(){
 	$('[data-trigger="click').tooltip();
 });

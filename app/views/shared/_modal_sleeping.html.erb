@@ -5,15 +5,11 @@
 <div class="modal fade" id="sleeping" tabindex="-1">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title"></h5>
-				<button class="close" data-dismiss="modal"><span>&times;</span></button>
-			</div>
 			<div class="modal-body">
-				<%= f.text_field :sleeping_memo %>
-				<%= f.submit "保存" %>
-			</div>
-			<div class="modal-footer">
+				<div class="form-group">
+					<%= f.text_field :sleeping_memo, class:"form-control w-75" %>
+					<%= f.submit "保存", class:"btn btn-success" %>
+				</div>
 			</div>
 		</div>
 	</div>
