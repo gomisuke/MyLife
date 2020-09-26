@@ -1,14 +1,23 @@
 <div class="container">
-	<div class="row">
-		<div class="offset-1 col-md-10 mt-5">
-			<h3><%= @diary.diary_date.strftime("%Y年%m月%d日") %>の日記</h3>
-			<div class="">
+	<div class="row justify-content-center diary-show-border mt-5">
+		<div class="col-md-8 my-5">
+			<div class=" diary-border mb-3">
+				<h3><%= @diary.diary_date.strftime("%Y年%m月%d日") %>の日記</h3>
+			</div>
+			<div class="diary-show-title px-3">
 				<h4><%= @diary.title %></h4>
-				<div class="diary-body">
-					<%= @diary.body %>
+			</div>
+			<div class="row">
+				<div class="col-8">
+					<div class="diary-body">
+						<%= @diary.body %>
+					</div>
 				</div>
-				<div class="">
-					<%= @diary.genre.name %>
+
+				<div class="col-4 text-center">
+					<div class="mb-4">
+						<%= @diary.genre.name %>
+					</div>
 					<% case @diary.adequacy %>
 						<% when 1 %>
 							<%= image_tag asset_path('nicochan5.png'), class:"diary-image-mypage" %>
@@ -23,6 +32,8 @@
 					<% end %>
 				</div>
 			</div>
+			<%= link_to "編集する", edit_diary_path(@diary), class:"btn btn-success" %>
+			<%= link_to "一覧へ戻る", diaries_path, class:"btn btn-info" %>
 		</div>
 	</div>
 </div>

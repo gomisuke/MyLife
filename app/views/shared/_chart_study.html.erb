@@ -1,1 +1,1 @@
-<%= line_chart life_recodes.group(:life_date).sum(:study_time) %>
+<%= column_chart life_recodes.group(:life_date).sum(:study_time), discrete: true %>

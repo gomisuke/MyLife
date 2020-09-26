@@ -43,7 +43,7 @@
 				<div class="col-md-4">
 					<div class="card">
 						<%= link_to post_path(post.id) do %>
-							<%= attachment_image_tag(post, :post_image, :fill, 100, 100, format: "jpeg", fallback: "no-image-camera.png", size: "100x100", class:"img-fluid card-img-top") %>
+							<%= attachment_image_tag(post, :post_image, :fill, 300, 300, format: "jpeg", fallback: "no-image-camera.png", size: "100x100", class:"img-fluid card-img-top") %>
 						<% end %>
 						<div class="card-body">
 							<%= post.content %>

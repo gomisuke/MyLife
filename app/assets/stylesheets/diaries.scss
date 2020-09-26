@@ -9,7 +9,7 @@
 	padding: 20px;
 }
 
-.new-title {
+.diary-border {
 	border-bottom: 5px #ff8c00 solid;
 }
 
@@ -26,10 +26,6 @@
 	border-bottom: 5px #ff8c00 solid;
 }
 
-
-
-
-
 .diary-image-mypage {
 	width: 100px;
 }
@@ -42,9 +38,19 @@
 	height: 120px;
 }
 
+.diary-show-title {
+	border-left: 10px #000000 solid;
+}
+
 .diary-body {
 	height: 250px;
-	border: 3px #000000 solid;
+}
+
+.diary-show-border {
+	border-left: 30px #ff8c00 solid;
+	border-top: 1px #d3d3d3 solid;
+	border-bottom: 1px #d3d3d3 solid;
+	border-right: 1px #d3d3d3 solid;
 }
 
 // .radio {
