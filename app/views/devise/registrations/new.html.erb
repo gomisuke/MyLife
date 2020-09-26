@@ -42,7 +42,7 @@
         <div class="field">
           <%= f.label :profile_image_id %><br />
           <%= f.attachment_field :profile_image, autofocus: true, autocomplete: "profile_image", id:"profile-image"  %>
-          <%= attachment_image_tag(resource, :profile_image, size:"120x120", format: "jpeg", fallback: "no_image.jpeg", id:"profile-preview", class:"profile-image") %>
+          <%= attachment_image_tag(resource, :profile_image, size:"120x120", format: "jpeg", fallback: "favicon.png", id:"profile-preview", class:"profile-image") %>
         </div>
 
         <div class="actions">
