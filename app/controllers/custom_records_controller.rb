@@ -1,4 +1,5 @@
 class CustomRecordsController < ApplicationController
+	before_action :authenticate_user!
 
 	def create
 		@custom = Custom.find(params[:id])

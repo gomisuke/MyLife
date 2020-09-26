@@ -4,7 +4,7 @@ class InquiryMailer < ApplicationMailer
 
 		@inquiry = inquiry
 	 	mail(
-	 		from:  @inquiry.mail,
+	 		from:  'system@example.com',
 	  		to:   ENV['INQUIRY_MAIL'],
 	   		subject: "お問い合わせ"
 	 	)

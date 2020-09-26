@@ -1,7 +1,9 @@
 class GenresController < ApplicationController
+  before_action :authenticate_user!
+
   def index
   	@genre = Genre.new
-  	@genres = Genre.where(user_id: current_user.id)
+  	@genres = current_user.genres
   end
 
   def create

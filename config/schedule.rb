@@ -42,9 +42,3 @@
    end
 
  end
-
-
-
- # every 1.day, at: '15:25 pm' do 
- # 	runner "Batch::TaskReset.task_reset"
- # end

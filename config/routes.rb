@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   	registrations: 'users/registrations',
   	sessions: 'users/sessions'
   }
-  resource :users
+  resource :users, only: [:show]
   get 'mypage/diary' => 'users#mypage_diary', as: 'mypage_diary'
   get 'mypage/post' => 'users#mypage_post', as: 'mypage_post'
   get 'mypage/like' => 'users#mypage_like', as: 'mypage_like'
@@ -13,16 +13,16 @@ Rails.application.routes.draw do
   get 'chart/sleeping' => 'users#chart_sleeping', as: 'chart_sleeping'
   get 'chart/exercise' => 'users#chart_exercise', as: 'chart_exercise'
   get 'customs/management' => 'customs#management'
-  resources :customs
+  resources :customs, only: [:index, :create, :destroy]
   post 'task_complete/:id' => 'custom_records#create', as: 'task_complete'
-  resources :posts do
+  resources :posts, only: [:new, :index, :create, :show, :destroy] do
     resources :likes, only: [:create, :destroy]
   end
   get 'search/post' => 'posts#post_search', as: 'post_search'
-  resources :genres
+  resources :genres, only: [:index, :create, :destroy]
   resources :diaries
-  resources :lives
-  resources :life_recodes
-  resources :inquiries
+  resources :lives, only: [:update]
+  resources :life_recodes, only: [:index]
+  resources :inquiries, only: [:new, :create]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

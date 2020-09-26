@@ -1,20 +1,18 @@
 class LivesController < ApplicationController
-
+	before_action :authenticate_user!
 
 	def update
-		@life = Life.find_by(user_id: current_user)
+		@life = current_user.life
 		@life.update(life_params)
 		if @life.save
 			flash[:success] = "記録しました"
 			redirect_to customs_path
 		else
-			@customs = Custom.where(user_id: current_user.id)
-			@custom_records = CustomRecord.where(user_id: current_user.id)   #ログイン中のユーザーのみのデータを渡す
+			@customs = current_user.customs
+			@custom_records = current_user.custom_records
 			render 'customs/index'
 		end
 	end
-
-
 
 	private
 

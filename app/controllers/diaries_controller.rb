@@ -1,4 +1,5 @@
 class DiariesController < ApplicationController
+	before_action :authenticate_user!
 
 	def new
 		@diary = Diary.new
@@ -16,8 +17,8 @@ class DiariesController < ApplicationController
 	end
 
 	def index
-		@diary_all = Diary.where(user_id: current_user.id).order(diary_date: "DESC")
-		@diaries = Diary.where(user_id: current_user.id).page(params[:page]).per(3).order(diary_date: "DESC")
+		@diary_all = current_user.diaries.order(diary_date: "DESC")
+		@diaries = current_user.diaries.page(params[:page]).per(3).order(diary_date: "DESC")
 	end
 
 	def show
@@ -32,6 +33,10 @@ class DiariesController < ApplicationController
 		@diary = Diary.find(params[:id])
 		@diary.update(diary_params)
 		redirect_to diary_path(@diary)
+	end
+
+	def destroy
+		@diary = Diary.find(params[:id])
 	end
 
 

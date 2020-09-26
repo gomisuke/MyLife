@@ -1,15 +1,16 @@
 class CustomsController < ApplicationController
+	before_action :authenticate_user!
 
 
 	def index
-		@customs = Custom.where(user_id: current_user.id)
-		@custom_records = CustomRecord.where(user_id: current_user.id)   #ログイン中のユーザーのみのデータを渡す
+		@customs = current_user.customs
+		@custom_records = current_user.custom_records
 		@life = Life.find_or_create_by(user_id: current_user.id)
 	end
 
 	def management
 		@custom = Custom.new
-		@customs = Custom.where(user_id: current_user.id)
+		@customs = current_user.customs
 	end
 
 	def create

@@ -1,1 +1,1 @@
-<%= column_chart life_recodes.group(:life_date).sum(:study_time), discrete: true %>
+<%= column_chart life_recodes.group(:life_date).sum(:study_time), discrete: true, xtitle: "日付（日）", ytitle: "時間（分）" %>

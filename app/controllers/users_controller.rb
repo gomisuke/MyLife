@@ -1,39 +1,37 @@
 class UsersController < ApplicationController
-
-
+	before_action :authenticate_user!
 
 	def show
-		@user = User.find(current_user.id)
-		@diaries = Diary.where(user_id: current_user)
-		@posts = Post.where(user_id: current_user)
+		@user = current_user
+		@diaries = current_user.diaries
+		@posts = current_user.posts
 		@like_posts = @user.posts
 		@life_recodes = LifeRecode.where(user_id: current_user.id)
 	end
 
 	def mypage_diary
-		@user = User.find(current_user.id)
-		@diaries = Diary.where(user_id: current_user)
+		@user = current_user
+		@diaries = current_user.diaries
 	end
 
 	def mypage_post
-		@user = User.find(current_user.id)
-		@posts = Post.where(user_id: current_user)
+		@user = current_user
+		@posts = current_user.posts
 	end
 
 	def mypage_like
-		@user = User.find(current_user.id)
-		@like_posts = @user.posts
+		@user = current_user
+		@like_posts = @user.like_posts
 	end
 
 	def chart_study
-		@life_recodes = LifeRecode.where(user_id: current_user.id)
+		@life_recodes = current_user.life_recodes
 	end
 
 	def chart_sleeping
-		@life_recodes = LifeRecode.where(user_id: current_user.id)
+		@life_recodes = current_user.life_recodes
 	end
 
 	def chart_exercise
-		@life_recodes = LifeRecode.where(user_id: current_user.id)
-	end
+		@life_recodes = current_user.life_recodes
 end
