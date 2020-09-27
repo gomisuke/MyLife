@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :diaries, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :like_posts, through: :likes, source: :post
+  has_many :life_recodes, dependent: :destroy
   #refileの設定
   attachment :profile_image
 

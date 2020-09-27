@@ -21,9 +21,9 @@ class PostsController < ApplicationController
   def index
     if params[:tag_search]
       tag = Tag.find(params[:tag_search])
-      @posts = tag.posts.page(params[:page]).per(12).order(created_at: "DESC")
+      @posts = tag.posts.where(post_status: true).page(params[:page]).per(12).order(created_at: "DESC")
     else
-  	  @posts = Post.all.page(params[:page]).per(12).order(created_at: "DESC")
+  	  @posts = Post.where(post_status: true).page(params[:page]).per(12).order(created_at: "DESC")
     end
 
     if params[:search]
@@ -52,7 +52,7 @@ class PostsController < ApplicationController
   private
 
   	def post_params
-  		params.require(:post).permit(:content, :post_image)
+  		params.require(:post).permit(:content, :post_image, :post_status)
   	end
 
 end

@@ -65,6 +65,18 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  #お問い合わせ
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  address:              'smtp.gmail.com',
+  port:                  587,
+  domain:               'gmail.com',
+  user_name:             ENV['INQUIRY_MAIL'],
+  password:              ENV['INQUIRY_PASSWORD'],
+  authentication:       'plain',
+  enable_starttls_auto:  true
+  }
+
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
@@ -92,18 +104,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.assets.paths << Rails.root.join("app", "assets", "fonts")
-  config.assets.precompile += %w( .svg .eot .woff .ttf .jpeg .png .jpg )
+  # config.assets.paths << Rails.root.join("app", "assets", "fonts")
+  # config.assets.precompile += %w( .svg .eot .woff .ttf .jpeg .png .jpg )
 
-  #お問い合わせ
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-  address:              'smtp.gmail.com',
-  port:                  587,
-  domain:               'gmail.com',
-  user_name:             ENV['INQUIRY_MAIL'],
-  password:              ENV['INQUIRY_PASSWORD'],
-  authentication:       'plain',
-  enable_starttls_auto:  true
-  }
 end

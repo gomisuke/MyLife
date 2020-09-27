@@ -9,7 +9,6 @@ class Post < ApplicationRecord
 	validates :user_id, presence: true
 	validates :content, presence: true, length:{maximum:30}
 	validates :post_image, presence: true
-	validates :post_status, presence: true
 
 	def liked_by?(user)
   		likes.where(user_id: user.id).exists?

@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 		@diaries = current_user.diaries
 		@posts = current_user.posts
 		@like_posts = @user.posts
-		@life_recodes = LifeRecode.where(user_id: current_user.id)
+		@life_recodes = current_user.life_recodes
 	end
 
 	def mypage_diary
@@ -34,4 +34,5 @@ class UsersController < ApplicationController
 
 	def chart_exercise
 		@life_recodes = current_user.life_recodes
+	end
 end
