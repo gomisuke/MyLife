@@ -4,6 +4,24 @@
 			<%= image_tag 'mylife-logo5.png', class:"img-fluid" %>
 		</div>
 	</div>
+	<div class="row mt-2 justify-content-around">
+
+		<%= link_to customs_management_path, class:"col-md-2 btn btn-info rounded-pill btn-sm" do %>
+		<br>
+			<!-- <div class="box-custom mx-auto text-center">
+			</div> -->
+		<% end %>
+		<%= link_to diaries_path, class:"col-md-3" do %>
+			<div class="box-diary mx-auto text-center">
+				
+			</div>
+		<% end %>
+		<%= link_to posts_path, class:"col-md-3" do %>
+			<div class="box-post mx-auto text-center">
+
+			</div>
+		<% end %>
+	</div>
 	<div class="row py-3 justify-content-center">
 		<div class=" col-md-5 bg-white">
 			<%= month_calendar events: @custom_records do |date, custom_records| %>
@@ -17,8 +35,17 @@
 		</div>
 		<div class="col-md-5">
 			<h3 class="text-center task-title bg-blue2">毎日のタスク  全<%= @customs.count %>件</h3>
-			<div class="custom-table px-5">
+			<div class="custom-table px-5 mt-4 mb-2 task-index">
 				<table class="table">
+					<% if @customs.count == 0 %>
+						<div class="text-center mt-3">
+							<h4>タスクを設定しよう！</h4>
+						</div>
+					<% elsif @customs.task_complete %>
+						<div class="task-complete">
+							<%= image_tag 'complete.png', class:"img-fluid" %>
+						</div>
+					<% end %>
 					<tbody>
 						<% @customs.each do |custom| %>
 						<tr>

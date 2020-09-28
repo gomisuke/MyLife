@@ -9,7 +9,8 @@
 }
 
 .mypage {
-	border-radius: 50px;
+	border-radius: 50px 0 0 50px;
+	background-color: #f5fffa;
 }
 
 .mypage-box {
@@ -18,10 +19,21 @@
 
 .page-title {
 	border-radius: 50px;
-	border: 5px #43a2db solid;
+	border: 5px #2f6cb5 solid;
 	font-family: "マルゴシック"
 }
 
 .mypage-border {
-	border-bottom: 2px #43a2db solid;
+	border-bottom: 2px #2f6cb5 solid;
 }
+
+.mypage-tabbox {
+	border: 1px #d3d3d3 solid;
+	background-color: #f5fffa;
+}
+
+.bg-chart {
+	background-color: #f5fffa;
+	border-radius: 0 50px 50px 0;
+}
+

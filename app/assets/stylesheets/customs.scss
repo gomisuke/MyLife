@@ -63,7 +63,13 @@
 }
 
 .custom-table {
-  border: 1px #d3d3d3 solid;
+  border: 3px #ffa500 dashed;
+  border-radius: 20px;
+  background-color: #fdf1d5;
+  box-shadow: 0 0 0 5px #fdf1d5;
+  min-height: 200px;
+  height: auto !important;
+  height: 200px;
 }
 
 .management-table {
@@ -82,8 +88,10 @@
 }
 
 .life-form {
-  border: 1px #d3d3d3 solid;
+  border: 3px #ffa500 dashed;
   border-radius: 20px;
+  background-color: #fdf1d5;
+  box-shadow: 0 0 0 5px #fdf1d5;
   padding: 15px 0px;
 }
 
@@ -91,4 +99,18 @@
   border-radius: 30px;
   padding: 0px 20px;
   color: white;
+}
+
+.task-index {
+  position: relative;
+}
+
+.task-complete {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+
 }

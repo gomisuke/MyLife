@@ -18,9 +18,9 @@
 				<thead>
 					<tr>
 						<th>日付</th>
-						<th>勉強時間(分)</th>
-						<th>睡眠時間(分)</th>
-						<th>運動時間(分)</th>
+						<th colspan="2">勉強時間(分)</th>
+						<th colspan="2">睡眠時間(分)</th>
+						<th colspan="2">運動時間(分)</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -28,8 +28,23 @@
 					<tr>
 						<td><%= recode.life_date.strftime("%Y年%m月%d日") %></td>
 						<td><%= recode.study_time %></td>
+						<td>
+							<% unless recode.study_memo.blank? %>
+								<i class="fas fa-clipboard ml-3"></i>
+							<% end %>
+						</td>
 						<td><%= recode.sleeping_time %></td>
+						<td>
+							<% unless recode.sleeping_memo.blank? %>
+								<i class="fas fa-clipboard ml-3"></i>
+							<% end %>
+						</td>
 						<td><%= recode.exercise_time %></td>
+						<td>
+							<% unless recode.exercise_memo.blank? %>
+								<i class="fas fa-clipboard ml-3"></i>
+							<% end %>
+						</td>
 					</tr>
 					<% end %>
 				</tbody>

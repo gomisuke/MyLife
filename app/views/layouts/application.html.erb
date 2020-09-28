@@ -13,8 +13,7 @@
   <body>
     <div id="wrap">
       <%= render 'shared/header' %>
-        <%= flash[:success] %>
-        <%= flash[:danger] %>
+      <%= render 'shared/notifications' %>
         <%= yield %>
       <%= render 'shared/footer' %>
     </div>

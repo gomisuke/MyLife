@@ -15,21 +15,23 @@
 				</div>
 
 				<div class="col-4 text-center">
-					<div class="mb-4">
+					<div class="mb-4 badge badge-info">
 						<%= @diary.genre.name %>
 					</div>
-					<% case @diary.adequacy %>
-						<% when 1 %>
-							<%= image_tag asset_path('nicochan5.png'), class:"diary-image-mypage" %>
-						<% when 2 %>
-							<%= image_tag asset_path('nicochan4.png'), class:"diary-image-mypage" %>
-						<% when 3 %>
-							<%= image_tag asset_path('nicochan1.png'), class:"diary-image-mypage" %>
-						<% when 4 %>
-							<%= image_tag asset_path('nicochan2.png'), class:"diary-image-mypage" %>
-						<% when 5 %>
-							<%= image_tag asset_path('nicochan3.png'), class:"diary-image-mypage" %>
-					<% end %>
+					<div>
+						<% case @diary.adequacy %>
+							<% when 1 %>
+								<%= image_tag asset_path('nicochan5.png'), class:"diary-image-mypage" %>
+							<% when 2 %>
+								<%= image_tag asset_path('nicochan4.png'), class:"diary-image-mypage" %>
+							<% when 3 %>
+								<%= image_tag asset_path('nicochan1.png'), class:"diary-image-mypage" %>
+							<% when 4 %>
+								<%= image_tag asset_path('nicochan2.png'), class:"diary-image-mypage" %>
+							<% when 5 %>
+								<%= image_tag asset_path('nicochan3.png'), class:"diary-image-mypage" %>
+						<% end %>
+					</div>
 				</div>
 			</div>
 			<%= link_to "編集する", edit_diary_path(@diary), class:"btn btn-success" %>
