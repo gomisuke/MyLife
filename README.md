@@ -1,29 +1,4 @@
-<<<<<<< HEAD
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-=======
 # MyLife
 
 ## サイト概要
@@ -60,4 +35,4 @@ https://docs.google.com/spreadsheets/d/1-OMWF-Vwon6YIj2sIhQY8u7Ve_bv03dZZEkpGISz
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - 仮想環境：Vagrant,VirtualBox
->>>>>>> origin/master
+

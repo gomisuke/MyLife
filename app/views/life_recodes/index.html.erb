@@ -30,19 +30,25 @@
 						<td><%= recode.study_time %></td>
 						<td>
 							<% unless recode.study_memo.blank? %>
-								<i class="fas fa-clipboard ml-3"></i>
+								<span class="" data-toggle="popover" data-placement="top" data-content="<%= recode.study_memo %>">
+									<i class="fas fa-clipboard ml-3"></i>
+								</span>
 							<% end %>
 						</td>
 						<td><%= recode.sleeping_time %></td>
 						<td>
 							<% unless recode.sleeping_memo.blank? %>
+							<span class="" data-toggle="popover" data-placement="top" data-content="<%= recode.sleeping_memo %>">
 								<i class="fas fa-clipboard ml-3"></i>
+							</span>
 							<% end %>
 						</td>
 						<td><%= recode.exercise_time %></td>
 						<td>
 							<% unless recode.exercise_memo.blank? %>
+							<span class="" data-toggle="popover" data-placement="top" data-content="<%= recode.exercise_memo %>">
 								<i class="fas fa-clipboard ml-3"></i>
+							</span>
 							<% end %>
 						</td>
 					</tr>

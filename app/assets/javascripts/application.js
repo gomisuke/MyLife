@@ -46,3 +46,8 @@ $(function(){
 $(function(){
 	$('[data-trigger="click').tooltip();
 });
+
+//ポップオーバー
+$(function(){
+	$('[data-toggle="popover').popover();
+});
