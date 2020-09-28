@@ -4,24 +4,6 @@
 			<%= image_tag 'mylife-logo5.png', class:"img-fluid" %>
 		</div>
 	</div>
-	<div class="row mt-2 justify-content-around">
-
-		<%= link_to customs_management_path, class:"col-md-2 btn btn-info rounded-pill btn-sm" do %>
-		<br>
-			<!-- <div class="box-custom mx-auto text-center">
-			</div> -->
-		<% end %>
-		<%= link_to diaries_path, class:"col-md-3" do %>
-			<div class="box-diary mx-auto text-center">
-				
-			</div>
-		<% end %>
-		<%= link_to posts_path, class:"col-md-3" do %>
-			<div class="box-post mx-auto text-center">
-
-			</div>
-		<% end %>
-	</div>
 	<div class="row py-3 justify-content-center">
 		<div class=" col-md-5 bg-white">
 			<%= month_calendar events: @custom_records do |date, custom_records| %>
