@@ -15,9 +15,8 @@ class User < ApplicationRecord
   #refileの設定
   attachment :profile_image
 
-  validates :name, presence: true, length:{maximum:10}
-  validates :acount_name, presence: true
-  # @\w*   正規表現
+  validates :name, presence: true, length:{in: 2..10 }
+  validates :acount_name, presence: true, format: { with: /@+\w{6,12}/}, uniqueness: true
   validates :introduction, presence: true, length:{maximum: 100}
 
 end

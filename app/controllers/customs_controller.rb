@@ -11,6 +11,7 @@ class CustomsController < ApplicationController
 	def management
 		@custom = Custom.new
 		@customs = current_user.customs
+		@custom_records = current_user.custom_records
 	end
 
 	def create

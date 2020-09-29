@@ -16,7 +16,11 @@
 			<% end %>
 		</div>
 		<div class="col-md-5">
-			<h3 class="text-center task-title bg-blue2">毎日のタスク  全<%= @customs.count %>件</h3>
+			<h3 class="text-center task-title bg-blue2">毎日のタスク  全<%= @customs.count %>件
+				<span class="h5" data-toggle="popover" data-placement="top" data-content="毎日00:00にリセットされます">
+					<i class="far fa-question-circle"></i>
+				</span>
+			</h3>
 			<div class="custom-table px-5 mt-4 mb-2 task-index">
 				<table class="table">
 					<% if @customs.count == 0 %>
@@ -53,7 +57,12 @@
 			</div>
 			<div class="row">
 				<div class="col-md-12 mt-3">
-					<h3 class="text-center task-title bg-blue2">生活記録</h3>
+					<h3 class="text-center task-title bg-blue2">
+						生活記録
+						<span class="h5" data-toggle="popover" data-placement="top" data-content="毎日23:59に記録されます">
+							<i class="far fa-question-circle"></i>
+						</span>
+					</h3>
 					<div class="life-form">
 						<%= form_with model: @life, class:"form-inline" do |f| %>
 							 	<div class="form-group form-row">

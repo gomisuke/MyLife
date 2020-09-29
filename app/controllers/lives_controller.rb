@@ -2,7 +2,7 @@ class LivesController < ApplicationController
 	before_action :authenticate_user!
 
 	def update
-		@life = current_user.life
+		@life = Life.find_by(user_id: current_user.id)
 		@life.update(life_params)
 		if @life.save
 			flash[:success] = "記録しました"
