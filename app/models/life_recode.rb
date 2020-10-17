@@ -8,4 +8,5 @@ class LifeRecode < ApplicationRecord
 	validates :study_memo, length:{maximum:100}
 	validates :sleeping_memo, length:{maximum:100}
 	validates :exercise_memo, length:{maximum:100}
+	validates :life_date, presence: true
 end
