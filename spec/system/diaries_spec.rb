@@ -9,8 +9,8 @@ RSpec.describe "Diaries", type: :system do
 
 			it "日記の新規作成が成功する" do
 				visit new_diary_path
-				fill_in "日付", with: "2020-01-01"
-				fill_in "タイトル", with: "テスト"
+				#fill_in "diary", with: "2020-01-01"
+				fill_in 'diary[title]', with: "テスト"
 				fill_in "内容", with: "日記新規登録機能のテスト"
 				fill_in "ジャンル", with: genre.id
 				fill_in "充実度（気分）", with: 1
