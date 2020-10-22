@@ -40,11 +40,11 @@
 					<div class="col-12">
 						<div class="form-group">
 							<%= f.label :adequacy %>
-							<label><%= f.radio_button :adequacy, 1 %><%= image_tag asset_path('nicochan5.png'), class:"diary-image" %></label>
-							<label><%= f.radio_button :adequacy, 2 %><%= image_tag asset_path('nicochan4.png'), class:"diary-image" %></label>
-							<label><%= f.radio_button :adequacy, 3 %><%= image_tag asset_path('nicochan1.png'), class:"diary-image" %></label>
-							<label><%= f.radio_button :adequacy, 4 %><%= image_tag asset_path('nicochan2.png'), class:"diary-image" %></label>
-							<label><%= f.radio_button :adequacy, 5 %><%= image_tag asset_path('nicochan3.png'), class:"diary-image" %></label>
+							<label><%= f.radio_button :adequacy, 1, id:"絶不調" %><%= image_tag asset_path('nicochan5.png'), class:"diary-image" %></label>
+							<label><%= f.radio_button :adequacy, 2, id:"不調" %><%= image_tag asset_path('nicochan4.png'), class:"diary-image" %></label>
+							<label><%= f.radio_button :adequacy, 3, id:"普通" %><%= image_tag asset_path('nicochan1.png'), class:"diary-image" %></label>
+							<label><%= f.radio_button :adequacy, 4, id:"好調" %><%= image_tag asset_path('nicochan2.png'), class:"diary-image" %></label>
+							<label><%= f.radio_button :adequacy, 5, id:"絶好調" %><%= image_tag asset_path('nicochan3.png'), class:"diary-image" %></label>
 						</div>
 					</div>
 					<div class="col-12 text-center pt-5">
