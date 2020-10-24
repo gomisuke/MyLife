@@ -13,7 +13,9 @@
 					<div class="post-<%= @post.id %>">
 						<%= render 'likes/like', { post: @post } %>
 					</div>
-					<%= link_to "削除", post_path(@post), method: :delete, class:"btn btn-danger btn-sm" %>
+					<% if current_user.id == @post.user_id %>
+						<%= link_to "削除", post_path(@post), method: :delete, class:"btn btn-danger btn-sm" %>
+					<% end %>
 				</div>
 			</div>
 		</div>

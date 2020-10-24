@@ -17,7 +17,7 @@ RSpec.describe "Posts", type: :system do
   			visit new_post_path
   			fill_in "投稿内容", with: "テスト"
   			fill_in "タグ付け", with: "テスト"
-  			attach_file '投稿写真', "#{Rails.root}/spec/fixtures/test.png"
+  			#attach_file "投稿写真", "#{Rails.root}/spec/fixtures/test.png"
   			click_button "投稿"
   			expect(page).to have_content "テスト"
   		end
