@@ -22,5 +22,17 @@ RSpec.describe "Posts", type: :system do
   			expect(page).to have_content "テスト"
   		end
   	end
+
+  	context "フォームの値が不正の場合" do
+
+  		it "新規投稿が失敗する" do
+  			visit new_post_path
+  			fill_in "投稿内容", with: "テスト"
+  			fill_in "タグ付け", with: "テスト"
+  			attach_file "post-image", nil
+  			click_button "投稿"
+  			expect(page).to have_content "を入力してください"
+  		end
+  	end
   end
 end
