@@ -7,4 +7,5 @@ FactoryBot.define do
     diary_date {"2020-01-01"}
     adequacy {1}
   end
+
 end

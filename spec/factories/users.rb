@@ -7,4 +7,6 @@ FactoryBot.define do
 		password_confirmation {'000000'}
 		introduction {'testtest'}
 	end
+
+
 end

@@ -35,4 +35,14 @@ RSpec.describe "Posts", type: :system do
   		end
   	end
   end
+
+  describe "いいね機能のテスト" do
+  	let!(:post) {create(:user)}
+
+  	it "いいねをする" do
+  		visit posts_path
+  		click_link "like-btn"
+  		expect(page).to have_content "like-on"
+  	end
+  end
 end
