@@ -21,7 +21,6 @@ RSpec.describe "Customs", type: :system do
   			expect(page).to have_content "テスト"
   		end
 
-
   	end
 
   	context "フォームの入力値が不正の場合" do
@@ -32,6 +31,7 @@ RSpec.describe "Customs", type: :system do
   			click_button "作成"
   			expect(page).to have_content "を入力してください"
   		end
+
   	end
 
   end

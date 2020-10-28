@@ -9,7 +9,7 @@ RSpec.describe "Users", type: :system do
 
   	context "フォーム入力値が正常の場合" do
 
-  		it "新規登録が成功する" do
+  		it "新規登録に成功する" do
   			visit root_path
   			click_link "登録して始める"
   			fill_in "ユーザー名", with: "テストユーザー"
@@ -26,7 +26,7 @@ RSpec.describe "Users", type: :system do
 
   	context "フォームの値が不正の場合" do
 
-  		it "新規登録が失敗する" do
+  		it "新規登録に失敗する" do
   			visit root_path
   			click_link "signup-btn"
   			fill_in "ユーザー名", with: ""

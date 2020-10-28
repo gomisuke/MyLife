@@ -13,6 +13,7 @@ class GenresController < ApplicationController
       flash[:success] = "新しいジャンルを作成しました"
       redirect_to genres_path
     else
+      @genres = current_user.genres
       render 'index'
     end
   end
