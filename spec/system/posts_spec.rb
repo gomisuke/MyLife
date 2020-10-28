@@ -8,7 +8,7 @@ RSpec.describe "Posts", type: :system do
   describe "新規投稿機能のテスト" do
   	let!(:user) {create(:user)}
   	before do
-  		login(:user)
+  		login(user)
   	end
 
   	context "フォームの入力値が正常の場合" do
@@ -37,12 +37,16 @@ RSpec.describe "Posts", type: :system do
   end
 
   describe "いいね機能のテスト" do
-  	let!(:post) {create(:user)}
+  	let!(:post) {create(:post)}
 
-  	it "いいねをする" do
-  		visit posts_path
-  		click_link "like-btn"
-  		expect(page).to have_content "like-on"
+  	before do
+  		login(post.user)
   	end
+
+  	# it "いいねをする" do
+  	# 	visit posts_path, xhr: true
+  	# 	click_link "not-like-btn"
+  	# 	expect(find('like-on')).to be_visible
+  	# end
   end
 end

@@ -9,7 +9,7 @@ RSpec.describe "Customs", type: :system do
   	let!(:user) {create(:user)}
 
   	before do
-  		login(:user)
+  		login(user)
   	end
 
   	context "フォーム入力値が正常の場合" do

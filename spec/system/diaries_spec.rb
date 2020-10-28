@@ -1,11 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe "Diaries", type: :system do
+
   	describe "日記新規登録機能のテスト" do
   		let!(:genre) {create(:genre)}
 
   		before do
-  			login(:user)
+  			login(genre.user)
   		end
 
   		context "フォーム入力値が正常の場合" do
@@ -38,15 +39,51 @@ RSpec.describe "Diaries", type: :system do
 	end
 
 	describe "日記一覧表示のテスト" do
-		let!(:diary) {create(:diary)}
+		let!(:user_a) {create(:user, name: "ユーザーA", email: "a@example.com", acount_name: "@test_user1")}
+		let!(:user_b) {create(:user, name: "ユーザーB", email: "b@example.com", acount_name: "@test_user2")}
+		let(:genre_a) {create(:genre, user: user_a)}
+		let(:genre_b) {create(:genre, user: user_b)}
 
 		before do
-			login(:user)
+			create(:diary, title: "日記A", genre: genre_a)
+			create(:diary, title: "日記B", genre: genre_b)
 		end
 
-		it "ログインユーザーの投稿日記のみが表示される" do
-			visit diaries_path
-			
+		context "ユーザーAがログインしている場合" do
+
+			before do
+				login(user_a)
+			end
+
+			it "ユーザーAの日記のみが表示される" do
+				visit diaries_path
+				expect(page).to have_content "日記A"
+			end
+
+			it "ユーザーA以外の日記が表示されない" do
+				visit diaries_path
+				expect(page).not_to have_content "日記B"
+			end
+
+
+		end
+
+		context "ユーザーBがログインしている場合" do
+
+			before do
+				login(user_b)
+			end
+
+			it "ユーザーBの日記のみが表示される" do
+				visit diaries_path
+				expect(page).to have_content "日記B"
+			end
+
+			it "ユーザーB以外のニキが表示されない" do
+				visit diaries_path
+				expect(page).not_to have_content "日記A"
+			end
+
 		end
 
 	end
