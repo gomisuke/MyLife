@@ -11,7 +11,7 @@ RSpec.describe "Users", type: :system do
 
   		it "新規登録に成功する" do
   			visit root_path
-  			click_link "登録して始める"
+  			click_link "signup-btn"
   			fill_in "ユーザー名", with: "テストユーザー"
   			fill_in "アカウント名", with: "@test_user"
   			fill_in "一言文", with: "テスト"
@@ -70,4 +70,18 @@ RSpec.describe "Users", type: :system do
   		end
   	end
   end
+
+  describe "会員情報編集機能のテスト" do
+  	let(:user) {create(:user)}
+  	before do
+  		login(user)
+  	end
+  	it "会員情報編集ができる" do
+  		visit edit_user_registration_path(user.id)
+  		fill_in "一言文", with: "編集テスト"
+  		click_button "登録情報を更新する"
+  		expect(page).to have_content "アカウント情報を変更しました"
+  	end
+  end
+
 end
