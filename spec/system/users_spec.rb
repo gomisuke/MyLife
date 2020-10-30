@@ -4,11 +4,8 @@ RSpec.describe "Users", type: :system do
   before do
     driven_by(:rack_test)
   end
-
   describe "新規登録機能のテスト" do
-
   	context "フォーム入力値が正常の場合" do
-
   		it "新規登録に成功する" do
   			visit root_path
   			click_link "signup-btn"
@@ -23,9 +20,7 @@ RSpec.describe "Users", type: :system do
   			expect(page).to have_content "アカウント登録が完了しました"
   		end
   	end
-
   	context "フォームの値が不正の場合" do
-
   		it "新規登録に失敗する" do
   			visit root_path
   			click_link "signup-btn"
@@ -39,15 +34,11 @@ RSpec.describe "Users", type: :system do
   			click_button "新規登録"
   			expect(page).to have_content "を入力してください"
   		end
-
   	end
   end
-
   describe "ログイン機能のテスト" do
   	let!(:user) {create(:user)}
-
   	context "会員情報が存在する場合" do
-
   		it "ログインに成功する" do
   			visit root_path
   			click_link "sigin-btn"
@@ -57,9 +48,7 @@ RSpec.describe "Users", type: :system do
   			expect(page).to have_content "ログインしました"
   		end
   	end
-
   	context "会員情報が存在しない場合" do
-
   		it "ログインに失敗する" do
   			visit root_path
   			click_link "sigin-btn"
@@ -70,7 +59,6 @@ RSpec.describe "Users", type: :system do
   		end
   	end
   end
-
   describe "会員情報編集機能のテスト" do
   	let(:user) {create(:user)}
   	before do
@@ -83,5 +71,4 @@ RSpec.describe "Users", type: :system do
   		expect(page).to have_content "アカウント情報を変更しました"
   	end
   end
-
 end
