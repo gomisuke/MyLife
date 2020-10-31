@@ -16,6 +16,7 @@ RSpec.describe "Diaries", type: :system do
 				select genre.name, from: 'ジャンル'
 				choose "絶不調"
 				click_button "日記作成"
+				#byebug
 				expect(page).to have_content "日記を作成しました！"
 			end
 		end

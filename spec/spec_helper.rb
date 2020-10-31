@@ -16,9 +16,14 @@
 
 require 'capybara/rspec'
 RSpec.configure do |config|
-  config.before(:each, type: :system) do
+  config.before(:each, type: :system) do |example|
     #driven_by :selenium_chrome_headless
-    driven_by :rack_test
+    #driven_by :rack_test
+  if example.metadata[:js]
+        driven_by :selenium_chrome_headless, screen_size: [1400, 1400]
+      else
+        driven_by :rack_test
+      end
   end
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
@@ -99,4 +104,17 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+
+  Capybara.register_driver :headless_chrome do |app|
+    chrome_options = Selenium::WebDriver::Chrome::Options.new
+    chrome_options.args << '--headless'
+
+    driver = Capybara::Selenium::Driver.new(app, browser: :chrome, options: chrome_options)
+    driver.browser.manage.window.size = Selenium::WebDriver::Dimension.new(2000, 3000)
+    driver
+  end
+
+  Capybara.javascript_driver = :headless_chrome
+  Capybara.default_max_wait_time = 5
+  Capybara.server = :puma, { Silent: true }
 end

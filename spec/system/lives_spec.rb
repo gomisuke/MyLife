@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe "Lives", type: :system do
-  before do
-    driven_by(:rack_test)
-  end
+  # before do
+  #   driven_by(:rack_test)
+  # end
 
   describe "生活記録のテスト" do
   	let(:user) {create(:user)}
