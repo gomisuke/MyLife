@@ -21,7 +21,7 @@ class User < ApplicationRecord
 
 
   def self.test_sign_in
-    User.find_by(email: "test@example.com")
+    User.find_by(email: "test_user@example.com")
   end
 
 end

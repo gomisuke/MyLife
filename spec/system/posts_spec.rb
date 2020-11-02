@@ -43,5 +43,12 @@ RSpec.describe "Posts", type: :system do
   		click_link "not-like-btn"
   		expect(find('#like-on')).to be_visible
   	end
+    it "いいねを外す", js: true do
+      visit posts_path
+      click_link "not-like-btn"
+      click_link "like-btn"
+      expect(find('#like-off')).to be_visible
+    end
   end
+
 end
