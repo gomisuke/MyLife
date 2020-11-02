@@ -26,6 +26,12 @@ class Users::SessionsController < Devise::SessionsController
     root_path
   end
 
+  def test_sign_in
+    user = User.test_sign_in
+    sign_in user
+    redirect_to customs_path, notice: "テストユーザーとしてログインしました。"
+  end
+
    #protected
 
 

@@ -19,4 +19,9 @@ class User < ApplicationRecord
   validates :acount_name, presence: true, format: { with: /@+\w{6,12}/}, uniqueness: true
   validates :introduction, presence: true, length:{maximum: 100}
 
+
+  def self.test_sign_in
+    User.find_by(email: "test@example.com")
+  end
+
 end

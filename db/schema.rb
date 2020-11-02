@@ -106,6 +106,24 @@ ActiveRecord::Schema.define(version: 2020_09_25_072109) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "sns", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_on_user_id"
+  end
+
+  create_table "sns_authentications", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_authentications_on_user_id"
+  end
+
   create_table "taggings", force: :cascade do |t|
     t.integer "post_id", null: false
     t.integer "tag_id", null: false

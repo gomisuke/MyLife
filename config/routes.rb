@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   	registrations: 'users/registrations',
   	sessions: 'users/sessions'
   }
+  devise_scope :user do
+    post 'users/test_sign_in' => 'users/sessions#test_sign_in'
+  end
   resource :users, only: [:show]
   get 'mypage/diary' => 'users#mypage_diary', as: 'mypage_diary'
   get 'mypage/post' => 'users#mypage_post', as: 'mypage_post'
