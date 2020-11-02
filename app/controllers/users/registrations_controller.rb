@@ -3,6 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
+  before_action :check_test_user, only: [:update]
 
   # GET /resource/sign_up
   # def new
@@ -63,6 +64,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def update_resource(resource, params)
     resource.update_without_password(params)
+  end
+
+  def check_test_user
+    if resource.email == "test@example.com"
+      redirect_to edit_user_registration_path
+      flash[:notice] = "テストユーザーは変更できません。"
+    end
   end
 
   # The path used after sign up.
