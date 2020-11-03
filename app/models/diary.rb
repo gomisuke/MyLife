@@ -9,4 +9,5 @@ class Diary < ApplicationRecord
 	validates :diary_date, presence: true
 	validates :adequacy, presence: true
 
+
 end
