@@ -12,6 +12,12 @@ RSpec.describe Custom, type: :model do
   	expect(custom.errors[:task]).to include("を入力してください。")
   end
 
+  it "タスクが20文字以内でないと登録できない" do
+    custom = build(:custom, task: "a" * 21)
+    custom.valid?
+    expect(custom.errors[:task]).to include("は20文字以内で入力してください。")
+  end
+
   it "ユーザーIDがなければ登録できない" do
   	custom = build(:custom, user_id: nil)
   	custom.valid?
