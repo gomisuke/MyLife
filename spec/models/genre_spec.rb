@@ -17,4 +17,11 @@ RSpec.describe Genre, type: :model do
   	genre.valid?
   	expect(genre.errors[:name]).to include("を入力してください。")
   end
+
+  it "ジャンル名が15文字以内でないと登録できない" do
+    genre = build(:genre, name: "a" * 16)
+    genre.valid?
+    expect(genre.errors[:name]).to include("は15文字以内で入力してください。")
+  end
+
 end
