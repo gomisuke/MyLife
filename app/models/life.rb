@@ -5,7 +5,7 @@ class Life < ApplicationRecord
 	validates :study_time, presence: true
 	validates :sleeping_time, presence: true
 	validates :exercise_time, presence: true
-	validates :study_memo, length:{maximum:100}
-	validates :sleeping_memo, length:{maximum:100}
-	validates :exercise_memo, length:{maximum:100}
+	validates :study_memo, length:{maximum:50}
+	validates :sleeping_memo, length:{maximum:50}
+	validates :exercise_memo, length:{maximum:50}
 end

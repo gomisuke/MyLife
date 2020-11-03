@@ -31,4 +31,22 @@ RSpec.describe Life, type: :model do
   	expect(life.errors[:exercise_time]).to include("を入力してください。")
   end
   
+  it "勉強時間は50文字以内でないと登録できない" do
+    life = build(:life, study_memo: "a" * 51)
+    life.valid?
+    expect(life.errors[:study_memo]).to include("は50文字以内で入力してください。")
+  end
+
+  it "睡眠メモは50文字以内でないと登録できない" do
+    life = build(:life, sleeping_memo: "a" * 51)
+    life.valid?
+    expect(life.errors[:sleeping_memo]).to include("は50文字以内で入力してください。")
+  end
+
+  it "運動メモは50文字以内でないと登録できない" do
+    life = build(:life, exercise_memo: "a" * 51)
+    life.valid?
+    expect(life.errors[:exercise_memo]).to include("は50文字以内で入力してください。")
+  end
+
 end
