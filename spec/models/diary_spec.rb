@@ -25,10 +25,22 @@ RSpec.describe Diary, type: :model do
   	expect(diary.errors[:title]).to include("を入力してください。")
   end
 
+  it "タイトルが50文字以内でないと登録できない" do
+    diary = build(:diary, title: "a" * 51)
+    diary.valid?
+    expect(diary.errors[:title]).to include("は50文字以内で入力してください。")
+  end
+
   it "内容がなければ登録されない" do
   	diary = build(:diary, body: nil)
   	diary.valid?
   	expect(diary.errors[:body]).to include("を入力してください。")
+  end
+
+  it "内容が500文字以内でないと登録できない" do
+    diary = build(:diary, body: "a" * 501)
+    diary.valid?
+    expect(diary.errors[:body]).to include("は500文字以内で入力してください。")
   end
 
   it "日付がなければ登録されない" do
