@@ -21,6 +21,7 @@
 						<th colspan="2">勉強時間(分)</th>
 						<th colspan="2">睡眠時間(分)</th>
 						<th colspan="2">運動時間(分)</th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -50,6 +51,9 @@
 								<i class="fas fa-clipboard ml-3"></i>
 							</span>
 							<% end %>
+						</td>
+						<td>
+							<%= link_to "編集", edit_life_recode_path(recode.id), class:"btn btn-success" %>
 						</td>
 					</tr>
 					<% end %>

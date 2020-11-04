@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   resources :genres, only: [:index, :create, :destroy]
   resources :diaries
   resources :lives, only: [:update]
-  resources :life_recodes, only: [:index]
+  resources :life_recodes, only: [:index, :edit, :update]
   resources :inquiries, only: [:new, :create]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

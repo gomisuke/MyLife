@@ -1,0 +1,37 @@
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-6 m-3">
+			<div class="">
+				<h3><%= @life_recode.life_date.strftime("%Y年%m月%d日") %>の記録</h3>
+			</div>
+			<%= form_with model:@life_recode do |f| %>
+			<div class="form-group">
+				<%= f.label :study_time %>
+				<%= f.text_field :study_time, class:"form-control" %>
+			</div>
+			<div class="form-group">
+				<%= f.label :sleeping_time %>
+				<%= f.text_field :sleeping_time, class:"form-control" %>
+			</div>
+			<div class="form-group">
+				<%= f.label :exercise_time %>
+				<%= f.text_field :exercise_time, class:"form-control" %>
+			</div>
+			<div class="form-group">
+				<%= f.label :study_memo %>
+				<%= f.text_field :study_memo, class:"form-control" %>
+			</div>
+			<div class="form-group">
+				<%= f.label :sleeping_memo %>
+				<%= f.text_field :sleeping_memo, class:"form-control" %>
+			</div>
+			<div class="form-group">
+				<%= f.label :exercise_memo %>
+				<%= f.text_field :exercise_memo, class:"form-control" %>
+			</div>
+				<%= f.submit "更新", class:"btn btn-primary" %>
+			<% end %>
+
+		</div>
+	</div>
+</div>
