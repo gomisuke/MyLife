@@ -69,7 +69,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def check_test_user
     if resource.email == "test_user@example.com"
       redirect_to edit_user_registration_path
-      flash[:notice] = "テストユーザーは変更できません。"
+      flash[:notice] = "サンプルユーザーは変更できません。"
     end
   end
 

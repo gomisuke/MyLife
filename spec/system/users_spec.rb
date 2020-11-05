@@ -71,4 +71,19 @@ RSpec.describe "Users", type: :system do
   		expect(page).to have_content "アカウント情報を変更しました"
   	end
   end
+  describe "サンプルユーザーのテスト" do
+    let!(:user) {create(:user, email: "test_user@example.com")}
+    it "簡単ログインのテスト" do
+      visit root_path
+      click_link "test-signin-btn"
+      expect(page).to have_content "サンプルユーザーとしてログインしました。"
+    end
+    it "サンプルユーザーは会員情報を編集できない" do
+      visit root_path
+      click_link "test-signin-btn"
+      visit edit_user_registration_path
+      click_button "登録情報を更新する"
+      expect(page).to have_content "サンプルユーザーは変更できません。"
+    end
+  end
 end

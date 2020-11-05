@@ -29,7 +29,7 @@ class Users::SessionsController < Devise::SessionsController
   def test_sign_in
     user = User.test_sign_in
     sign_in user
-    redirect_to customs_path, notice: "テストユーザーとしてログインしました。"
+    redirect_to customs_path, notice: "サンプルユーザーとしてログインしました。"
   end
 
    #protected
