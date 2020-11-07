@@ -61,7 +61,7 @@ RSpec.describe "Posts", type: :system do
     context "ログインユーザー以外の投稿の場合" do
       let(:user2) {create(:user, name:"user2", acount_name:"@test_user2", email: "user2@example.com")}
       let(:post2) {create(:post, user: user2)}
-      it "ログインユーザー以外の投稿の場合" do
+      it "削除ボタンは表示されない" do
         visit post_path(post2)
         expect(page).not_to have_link "削除"
       end

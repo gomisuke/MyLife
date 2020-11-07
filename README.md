@@ -25,6 +25,8 @@
 生活の記録、習慣付け
 
 ## 設計書
+### ER図
+https://drive.google.com/file/d/1nPJ2Rp4ffl75ZV-FIASd6nrptA1mpxQm/view?usp=sharing
 
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/1-OMWF-Vwon6YIj2sIhQY8u7Ve_bv03dZZEkpGISzaBU/edit?usp=sharing
