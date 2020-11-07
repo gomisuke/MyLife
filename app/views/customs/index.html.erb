@@ -50,7 +50,7 @@
 						</div>
 					<% elsif @customs.task_complete %>
 						<div class="task-complete">
-							<%= image_tag 'complete.png', class:"img-fluid" %>
+							<%= image_tag 'complete.png', class:"img-fluid", id:"complete-image" %>
 						</div>
 					<% end %>
 					<tbody>
@@ -68,7 +68,7 @@
 							</td>
 							<td class="w-25 text-center">
 								<% if custom.task_status == "未達成" %>
-								<%= link_to "達成", task_complete_path(custom.id), method: :post %>
+								<%= link_to "達成", task_complete_path(custom.id), id:"task_button", method: :post %>
 								<% end %>
 							</td>
 						</tr>
