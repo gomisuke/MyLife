@@ -7,7 +7,7 @@ RSpec.describe "Posts", type: :system do
   	before do
   		login(user)
   	end
-  	context "フォームの入力値が正常で新規投稿が成功する場合" do
+  	context "新規投稿に成功した場合" do
       before do
         visit new_post_path
         fill_in "投稿内容", with: "テスト"
@@ -22,7 +22,7 @@ RSpec.describe "Posts", type: :system do
         expect(page).to have_content "投稿一覧"
       end
     end
-  	context "フォームの値が不正で新規投稿に失敗する" do
+  	context "新規投稿に失敗した場合" do
       before do
         visit new_post_path
         fill_in "投稿内容", with: "テスト"
