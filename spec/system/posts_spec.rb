@@ -1,33 +1,41 @@
 require 'rails_helper'
 
 RSpec.describe "Posts", type: :system do
-  # before do
-  #   driven_by(:rack_test)
-  # end
+
   describe "新規投稿機能のテスト" do
   	let!(:user) {create(:user)}
   	before do
   		login(user)
   	end
-  	context "フォームの入力値が正常の場合" do
-  		it "新規投稿が成功する" do
-  			visit new_post_path
-  			fill_in "投稿内容", with: "テスト"
-  			fill_in "タグ付け", with: "テスト"
-  			attach_file "post-image", "#{Rails.root}/spec/fixtures/test.png"
-  			click_button "投稿"
+  	context "フォームの入力値が正常で新規投稿が成功する場合" do
+      before do
+        visit new_post_path
+        fill_in "投稿内容", with: "テスト"
+        fill_in "タグ付け", with: "テスト"
+        attach_file "post-image", "#{Rails.root}/spec/fixtures/test.png"
+        click_button "投稿"
+      end
+  		it "サクセスメッセージが表示される" do
   			expect(page).to have_content "投稿しました"
   		end
-  	end
-  	context "フォームの値が不正の場合" do
-  		it "新規投稿が失敗する" do
-  			visit new_post_path
-  			fill_in "投稿内容", with: "テスト"
-  			fill_in "タグ付け", with: "テスト"
-  			attach_file "post-image", nil
-  			click_button "投稿"
+      it "投稿一覧ページに遷移する" do
+        expect(page).to have_content "投稿一覧"
+      end
+    end
+  	context "フォームの値が不正で新規投稿に失敗する" do
+      before do
+        visit new_post_path
+        fill_in "投稿内容", with: "テスト"
+        fill_in "タグ付け", with: "テスト"
+        attach_file "post-image", nil
+        click_button "投稿"
+      end
+  		it "エラーメッセージが表示される" do
   			expect(page).to have_content "を入力してください"
   		end
+      it "新規投稿ページに遷移する" do
+        expect(page).to have_content "投稿する"
+      end
   	end
   end
 

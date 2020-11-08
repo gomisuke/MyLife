@@ -14,4 +14,5 @@ RSpec.describe "Lives", type: :system do
   		expect(page).to have_content "記録しました"
   	end
   end
+
 end
