@@ -10,7 +10,7 @@ class DiariesController < ApplicationController
 		@diary.user = current_user
 		if @diary.save
 			flash[:success] = "日記を作成しました！"
-			redirect_to customs_path
+			redirect_to diaries_path
 		else
 			render 'new'
 		end

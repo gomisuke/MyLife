@@ -7,20 +7,25 @@ RSpec.describe "Diaries", type: :system do
   		before do
   			login(genre.user)
   		end
-  		context "フォーム入力値が正常の場合" do
-			it "日記の新規作成が成功する" do
-				visit new_diary_path
+  		context "新規投稿に成功した場合" do
+  			before do
+  				visit new_diary_path
 				fill_in "日付", with: "2020-01-01"
 				fill_in 'タイトル', with: "テスト"
 				fill_in "内容", with: "日記新規登録機能のテスト"
 				select genre.name, from: 'ジャンル'
 				choose "絶不調"
 				click_button "日記作成"
+			end
+			it "サクセスメッセージが表示される" do
 				expect(page).to have_content "日記を作成しました！"
 			end
+			it "日記一覧ページに遷移する" do
+				expect(page).to have_content "日記一覧"
+			end
 		end
-		context "フォームの入力値が不正の場合" do
-			it "日記の新規作成が失敗する" do
+		context "新規投稿に失敗した場合" do
+			before do
 				visit new_diary_path
 				fill_in "日付", with: "2020-01-01"
 				fill_in 'タイトル', with: ""
@@ -28,7 +33,12 @@ RSpec.describe "Diaries", type: :system do
 				select genre.name, from: 'ジャンル'
 				choose "絶不調"
 				click_button "日記作成"
+			end
+			it "エラーメッセージが表示される" do
 				expect(page).to have_content "を入力してください"
+			end
+			it "日記新規作成ページに遷移する" do
+				expect(page).to have_content "日記を書く"
 			end
 		end
 	end
