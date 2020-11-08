@@ -32,6 +32,7 @@ RSpec.describe "Diaries", type: :system do
 			end
 		end
 	end
+
 	describe "一覧ページのテスト" do
 		let!(:user_a) {create(:user, name: "ユーザーA", email: "a@example.com", acount_name: "@test_user1")}
 		let!(:user_b) {create(:user, name: "ユーザーB", email: "b@example.com", acount_name: "@test_user2")}
@@ -85,6 +86,7 @@ RSpec.describe "Diaries", type: :system do
 			end
 		end
 	end
+
 	describe "詳細ページのテスト" do
 		let(:diary) {create(:diary)}
 
@@ -104,4 +106,5 @@ RSpec.describe "Diaries", type: :system do
 			expect(page).to have_content diary.diary_date.strftime("%Y年%m月%d日")
 		end
 	end
+
 end

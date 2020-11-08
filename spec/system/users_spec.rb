@@ -36,6 +36,7 @@ RSpec.describe "Users", type: :system do
   		end
   	end
   end
+
   describe "ログイン機能のテスト" do
   	let!(:user) {create(:user)}
   	context "会員情報が存在する場合" do
@@ -59,6 +60,7 @@ RSpec.describe "Users", type: :system do
   		end
   	end
   end
+
   describe "会員情報編集機能のテスト" do
   	let(:user) {create(:user)}
   	before do
@@ -71,6 +73,7 @@ RSpec.describe "Users", type: :system do
   		expect(page).to have_content "アカウント情報を変更しました"
   	end
   end
+
   describe "サンプルユーザーのテスト" do
     let!(:user) {create(:user, email: "test_user@example.com")}
     it "簡単ログインのテスト" do

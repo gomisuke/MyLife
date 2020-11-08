@@ -1,9 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Genres", type: :system do
-  # before do
-  #   driven_by(:rack_test)
-  # end
+
   describe "ジャンル新規登録のテスト" do
   	let(:user) {create(:user)}
   	before do
@@ -26,4 +24,5 @@ RSpec.describe "Genres", type: :system do
   		end
   	end
   end
+
 end

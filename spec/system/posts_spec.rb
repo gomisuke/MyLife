@@ -30,6 +30,7 @@ RSpec.describe "Posts", type: :system do
   		end
   	end
   end
+
   describe "いいね機能のテスト" do
   	let!(:post) {create(:post)}
   	before do
@@ -47,6 +48,7 @@ RSpec.describe "Posts", type: :system do
       expect(find('#like-off')).to be_visible
     end
   end
+
   describe "投稿詳細ページのテスト" do
     let!(:post) {create(:post)}
     before do
@@ -66,7 +68,6 @@ RSpec.describe "Posts", type: :system do
         expect(page).not_to have_link "削除"
       end
     end
-
   end
 
 end

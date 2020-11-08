@@ -1,13 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe "Customs", type: :system do
-  # before do
-  #   driven_by(:rack_test)
-  # end
+
   let!(:user) {create(:user)}
   before do
     login(user)
   end
+
   describe "習慣タスクの新規登録" do
   	context "フォーム入力値が正常の場合" do
   		it "新規タスク登録が成功する" do
@@ -26,6 +25,7 @@ RSpec.describe "Customs", type: :system do
   		end
   	end
   end
+
   describe "習慣設定のテスト" do
     context "登録タスクが０個の場合" do
       it "タスクを設定しようの表示が出る" do
