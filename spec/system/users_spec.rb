@@ -5,35 +5,45 @@ RSpec.describe "Users", type: :system do
   #   driven_by(:rack_test)
   # end
   describe "新規登録機能のテスト" do
-  	context "フォーム入力値が正常の場合" do
-  		it "新規登録に成功する" do
-  			visit root_path
-  			click_link "signup-btn"
-  			fill_in "ユーザー名", with: "テストユーザー"
-  			fill_in "アカウント名", with: "@test_user"
-  			fill_in "一言文", with: "テスト"
-  			fill_in "メールアドレス", with: "test@example.com"
-  			fill_in "パスワード", with: "testtest"
-  			fill_in "確認用パスワード", with: "testtest"
-  			attach_file "profile-image", "#{Rails.root}/spec/fixtures/test.png"
-  			click_button "新規登録"
+  	context "新規登録に成功した場合" do
+      before do
+        visit root_path
+        click_link "signup-btn"
+        fill_in "ユーザー名", with: "テストユーザー"
+        fill_in "アカウント名", with: "@test_user"
+        fill_in "一言文", with: "テスト"
+        fill_in "メールアドレス", with: "test@example.com"
+        fill_in "パスワード", with: "testtest"
+        fill_in "確認用パスワード", with: "testtest"
+        attach_file "profile-image", "#{Rails.root}/spec/fixtures/test.png"
+        click_button "新規登録"
+      end
+  		it "サクセスメッセージが表示される" do
   			expect(page).to have_content "アカウント登録が完了しました"
   		end
+      it "ホーム画面に遷移する" do
+        expect(find('#home-image')).to be_visible
+      end
   	end
-  	context "フォームの値が不正の場合" do
-  		it "新規登録に失敗する" do
-  			visit root_path
-  			click_link "signup-btn"
-  			fill_in "ユーザー名", with: ""
-  			fill_in "アカウント名", with: "@test_user"
-  			fill_in "一言文", with: "テスト"
-  			fill_in "メールアドレス", with: "test@example.com"
-  			fill_in "パスワード", with: "testtest"
-  			fill_in "確認用パスワード", with: "testtest"
-  			attach_file "profile-image", "#{Rails.root}/spec/fixtures/test.png"
-  			click_button "新規登録"
+  	context "新規登録が失敗した場合" do
+      before do
+        visit root_path
+        click_link "signup-btn"
+        fill_in "ユーザー名", with: ""
+        fill_in "アカウント名", with: "@test_user"
+        fill_in "一言文", with: "テスト"
+        fill_in "メールアドレス", with: "test@example.com"
+        fill_in "パスワード", with: "testtest"
+        fill_in "確認用パスワード", with: "testtest"
+        attach_file "profile-image", "#{Rails.root}/spec/fixtures/test.png"
+        click_button "新規登録"
+      end
+  		it "エラーメッセージが表示される" do
   			expect(page).to have_content "を入力してください"
   		end
+      it "新規登録画面に遷移する" do
+        expect(page).to have_content "新規登録画面"
+      end
   	end
   end
 
