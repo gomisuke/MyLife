@@ -86,12 +86,19 @@ RSpec.describe "Users", type: :system do
   	before do
   		login(user)
   	end
-  	it "会員情報編集ができる" do
-  		visit edit_user_registration_path(user.id)
-  		fill_in "一言文", with: "編集テスト"
-  		click_button "登録情報を更新する"
-  		expect(page).to have_content "アカウント情報を変更しました"
-  	end
+    context "編集内容が更新される" do
+      before do
+        visit edit_user_registration_path(user.id)
+        fill_in "一言文", with: "編集テスト"
+        click_button "登録情報を更新する"
+      end
+    	it "更新メッセージが表示される" do
+    		expect(page).to have_content "アカウント情報を変更しました"
+    	end
+      it "マイページに遷移する" do
+        expect(page).to have_content "マイページ"
+      end
+    end
   end
 
   describe "サンプルユーザーのテスト" do
