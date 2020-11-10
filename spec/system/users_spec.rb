@@ -25,7 +25,7 @@ RSpec.describe "Users", type: :system do
         expect(find('#home-image')).to be_visible
       end
   	end
-  	context "新規登録が失敗した場合" do
+  	context "新規登録に失敗した場合" do
       before do
         visit root_path
         click_link "signup-btn"
@@ -49,25 +49,35 @@ RSpec.describe "Users", type: :system do
 
   describe "ログイン機能のテスト" do
   	let!(:user) {create(:user)}
-  	context "会員情報が存在する場合" do
-  		it "ログインに成功する" do
-  			visit root_path
-  			click_link "sigin-btn"
-  			fill_in "メールアドレス", with: "test@example.com"
-  			fill_in "パスワード", with: "000000"
-  			click_button "ログイン"
+  	context "会員情報が存在しログインに成功した場合" do
+      before do
+        visit root_path
+        click_link "sigin-btn"
+        fill_in "メールアドレス", with: "test@example.com"
+        fill_in "パスワード", with: "000000"
+        click_button "ログイン"
+      end
+  		it "サクセスメッセージが表紙される" do
   			expect(page).to have_content "ログインしました"
   		end
+      it "ホームページに遷移する" do
+        expect(find('#home-image')).to be_visible
+      end
   	end
   	context "会員情報が存在しない場合" do
-  		it "ログインに失敗する" do
-  			visit root_path
-  			click_link "sigin-btn"
-  			fill_in "メールアドレス", with: "not-exist@example.com"
-  			fill_in "パスワード", with: "000000"
-  			click_button "ログイン"
+      before do
+        visit root_path
+        click_link "sigin-btn"
+        fill_in "メールアドレス", with: "not-exist@example.com"
+        fill_in "パスワード", with: "000000"
+        click_button "ログイン"
+      end
+  		it "エラーメッセージが表示される" do
   			expect(page).to have_content "メールアドレスまたはパスワードが違います。"
   		end
+      it "ログイン画面に遷移する" do
+        expect(page).to have_content "ログイン画面"
+      end
   	end
   end
 
