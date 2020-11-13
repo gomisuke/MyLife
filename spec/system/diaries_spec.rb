@@ -94,6 +94,9 @@ RSpec.describe "Diaries", type: :system do
 			it "日記投稿日時が表示される" do
 				expect(page).to have_content "2020年01月01日"
 			end
+			it "詳細ボタンが表示される" do
+				expect(find('#diary-show-btn')).to be_visible
+			end
 		end
 	end
 

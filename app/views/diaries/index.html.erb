@@ -23,7 +23,7 @@
 					<tr>
 						<td><%= diary.diary_date.strftime("%Y年%m月%d日") %><br>
 						<i class="fas fa-bookmark"></i><%= diary.title %></td>
-						<td><%= link_to "詳細", diary_path(diary.id), class:"btn btn-success btn-sm"%></td>
+						<td><%= link_to "詳細", diary_path(diary.id), class:"btn btn-success btn-sm", id:"diary-show-btn" %></td>
 					</tr>
 					<% end %>
 				</tbody>
